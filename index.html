@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <h3>My Google Maps Demo</h3>
-<div id="map"></div>
-<script>
-    function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
-        });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap">
-</script>
-<head>
-    <script src="jquery-3.2.1.min.js"></script>
-</head>
+<div id="map">
+    <script src="main.js"></script>
+   <script>
+        function initMap() {
+            var uluru = {lat: 60.2208061, lng: 24.8053184};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+</div>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap">
+    </script>
+</body>
 </html>
