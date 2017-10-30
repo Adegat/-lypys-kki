@@ -6,23 +6,15 @@
 </head>
 <body>
 <h3>My Google Maps Demo</h3>
-<div id="map">
-    <script src="main.js"></script>
-   <script>
-        function initMap() {
-            var uluru = {lat: 60.2208061, lng: 24.8053184};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 17,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-    </script>
+<div>
+    <div id="map">
+        <script src="js/map.js"></script>
+    </div>
+    <div id="AikaTauulu">
+        <script src="js/aikataulu.js"></script>
+    </div>
 </div>
-    <script async defer
+ <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap">
     </script>
 </body>
