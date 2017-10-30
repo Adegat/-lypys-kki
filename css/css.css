@@ -2,6 +2,10 @@
     width: 50%;
     height: 1000px;
 }
+#map2{
+    width: 100%;
+    height: 2000px;
+}
 body {
     background-image: url("Taustakuva.jpg");
     background-repeat: no-repeat;
@@ -10,5 +14,5 @@ body {
     position: absolute;
     right: 10px;
     top: 101px;
-   
+
 }
