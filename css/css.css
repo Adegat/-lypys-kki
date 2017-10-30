@@ -1,9 +1,10 @@
 #map{
     width: 50%;
-    height: 1000px;
+    height: 990px;
 }
 body {
     background-image: url("Taustakuva.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
 }
 #buttonZoom{
@@ -11,4 +12,7 @@ body {
     right: 10px;
     top: 101px;
    
+}
+#aika{
+    color: white;
 }
