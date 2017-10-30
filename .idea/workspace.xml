@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4ac559e-a075-4e1b-a297-8cdc69e87642" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/map.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/js/aikataulu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -133,11 +129,6 @@
               <item name="bussiproju" type="b2602c69:ProjectViewProjectNode" />
               <item name="bussiproju" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="bussiproju" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bussiproju" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -178,12 +169,12 @@
       <option name="presentableId" value="Default" />
       <updated>1509003872273</updated>
       <workItem from="1509003876532" duration="4227000" />
-      <workItem from="1509349878193" duration="6646000" />
+      <workItem from="1509349878193" duration="7057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10873000" />
+    <option name="totallyTimeSpent" value="11284000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="515" y="4" width="1386" height="1038" extended-state="1" />
