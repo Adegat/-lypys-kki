@@ -6,3 +6,9 @@ body {
     background-image: url("Taustakuva.jpg");
     background-repeat: no-repeat;
 }
+buttonZoom{
+    position: absolute;
+    right: 10px;
+    top: 101px;
+    Font-size: 31px;
+}
