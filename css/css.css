@@ -15,12 +15,10 @@ body {
     position: absolute;
     right: 10px;
     top: 101px;
-<<<<<<< HEAD
-   
 }
-#aika{
+#time{
+    font-size: xx-large;
+    font-family: "Comic Sans MS";
     color: white;
-=======
-
->>>>>>> origin/master
+    padding-left: 50%;
 }
