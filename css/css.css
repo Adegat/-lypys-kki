@@ -2,3 +2,7 @@
     width: 50%;
     height: 1000px;
 }
+body {
+    background-image: url("Taustakuva.jpg");
+    background-repeat: no-repeat;
+}
