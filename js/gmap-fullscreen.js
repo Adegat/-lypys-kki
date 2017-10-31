@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+=======
+function isomap(){
+
+buttonZoom.onclick = function() {
+    var div = document.getElementById("map");
+
+    if(div) {
+
+        div.style.height = "100%";
+        div.style.width = "100%";
+        div.style.position = "absolute";
+        div.style.top = "0";
+        div.style.left ="0";
+        return false;
+    }
+};
+
+}
+>>>>>>> ca3ea17301a67eac3e22ae55dc9c058f3d2634c4
 
 /*function isomap()
 {

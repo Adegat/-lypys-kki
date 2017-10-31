@@ -21,11 +21,14 @@ body {
     height: 990px;
     float: left;
 }
+<<<<<<< HEAD
 
 #map2{
     width: 100%;
     height: 2000px;
  }
+=======
+>>>>>>> ca3ea17301a67eac3e22ae55dc9c058f3d2634c4
 #AikaTaulu{
     float: right;
     width: 50%;
