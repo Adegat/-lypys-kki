@@ -5,9 +5,11 @@ buttonZoom.onclick = function() {
 
     if(div) {
 
-        div.style.height = "2900px";
-        div.style.width = "3200px";
-
+        div.style.height = "100%";
+        div.style.width = "100%";
+        div.style.position = "absolute";
+        div.style.top = "0";
+        div.style.left ="0";
         return false;
     }
 };
