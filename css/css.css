@@ -1,24 +1,45 @@
-#map{
-    width: 50%;
-    height: 990px;
-}
-#map2{
-    width: 100%;
-    height: 2000px;
-}
+
 body {
     background-image: url("Taustakuva.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
+#time{
+     font-size: 70px;
+     font-family: "Times New Roman";
+     color: white;
+     padding-left: 50%;
+    background-color: #ff0080;
+ }
+#parentdiv{
+    width: 100%;
+    border: 1px;
+    float: left;
+}
+#map{
+    width: 50%;
+    height: 990px;
+    float: left;  }
+#map2{
+    width: 100%;
+    height: 2000px;
+ }
+#AikaTaulu{
+    float: right;
+    width: 50%;
+    height: 990px;
+    background-color: chocolate;
+    font-size: 100px;
+ }
+
 #buttonZoom{
     position: absolute;
     right: 10px;
     top: 101px;
 }
-#time{
-    font-size: xx-large;
-    font-family: "Comic Sans MS";
-    color: white;
-    padding-left: 50%;
+
+#mainos{
+    font-size: 150px;
+    padding: 100px;
+    background-color: darkgreen;
 }
