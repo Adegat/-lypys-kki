@@ -5,11 +5,7 @@
     <list default="true" id="d4ac559e-a075-4e1b-a297-8cdc69e87642" name="Default" comment="" />
 =======
     <list default="true" id="d4ac559e-a075-4e1b-a297-8cdc69e87642" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/map.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/js/aikataulu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
 >>>>>>> da0e92b53352b47a42614b1052b3e891613bf66b
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -167,11 +163,6 @@
               <item name="bussiprojekti" type="b2602c69:ProjectViewProjectNode" />
               <item name="bussiprojekti" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="bussiproju" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bussiproju" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -223,12 +214,19 @@
       <workItem from="1509359757299" duration="557000" />
 =======
       <workItem from="1509003876532" duration="4227000" />
+<<<<<<< HEAD
+      <workItem from="1509349878193" duration="7057000" />
+=======
       <workItem from="1509349878193" duration="6646000" />
 >>>>>>> da0e92b53352b47a42614b1052b3e891613bf66b
+>>>>>>> origin/master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="11284000" />
+=======
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="4673000" />
   </component>
@@ -236,6 +234,7 @@
     <frame x="356" y="78" width="1386" height="1038" extended-state="0" />
 =======
     <option name="totallyTimeSpent" value="10873000" />
+>>>>>>> origin/master
   </component>
   <component name="ToolWindowManager">
     <frame x="515" y="4" width="1386" height="1038" extended-state="1" />
