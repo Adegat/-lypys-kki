@@ -20,9 +20,12 @@ body {
     width: 50%;
     height: 990px;
     float: left;
-
 }
 
+#map2{
+    width: 100%;
+    height: 2000px;
+ }
 #AikaTaulu{
     float: right;
     width: 50%;
