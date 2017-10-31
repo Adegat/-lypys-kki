@@ -1,8 +1,5 @@
 
-/*now = new Date();
-localtime = now.toString();
-utctime = now.toGMTString();
-document.write(localtime + "</p>");*/
+
 function startTime() {
     var today = new Date();
     var h = today.getHours();
