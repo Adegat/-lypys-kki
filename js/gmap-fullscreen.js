@@ -1,5 +1,20 @@
+function isomap(){
 
-function isomap()
+buttonZoom.onclick = function() {
+    var div = document.getElementById("map");
+
+    if(div) {
+
+        div.style.height = "2900px";
+        div.style.width = "3200px";
+
+        return false;
+    }
+};
+
+}
+
+/*function isomap()
 {
 
     var elem = document.getElementById("map");
