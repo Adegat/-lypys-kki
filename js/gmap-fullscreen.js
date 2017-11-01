@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-=======
+
+/*
 function isomap(){
 
 buttonZoom.onclick = function() {
@@ -17,7 +17,6 @@ buttonZoom.onclick = function() {
 };
 
 }
->>>>>>> ca3ea17301a67eac3e22ae55dc9c058f3d2634c4
 
 /*function isomap()
 {
@@ -33,10 +32,10 @@ buttonZoom.onclick = function() {
         elem.webkitRequestFullscreen();
     }
 
-}*/
+}*//*
 function fullscreen() {
 
     $("#map_toggler").click(function () {
         $("#map").toggleClass("fullscreen")
     });
-}
+}*/

@@ -13,4 +13,19 @@ function initMap() {
     });
 
 }
-
+/*
+$('#resize').click(function muutakoko(){
+        var kartta = document.getElementById("map");
+        var value = $(this).html();
+        if(value != 'Piennennä'){
+            $(this).html('Piennennä');
+            $(kartta).toggleClass('fullscreen map');
+            initMap();
+            return false;
+        }else{
+            $(this).html('Suurenna');
+            $(kartta).toggleClass('map fullscreen');
+            initMap();
+        }
+    }
+)*/

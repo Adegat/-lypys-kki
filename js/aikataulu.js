@@ -1,4 +1,4 @@
-funtion getTimetables ()
+/*funtion getTimetables ()
 {
     var times = [
         "12:00",
@@ -9,5 +9,4 @@ funtion getTimetables ()
     times.forEach(function (element) {
 
     });
-
-}
+}*/
