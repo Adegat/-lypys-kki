@@ -12,16 +12,18 @@
 <body onload="startTime()">
 <div id="parentdiv">
     <div id="time"></div>
-    <div class="map" id="map"></div>
+    <div class="map" id="map">
+        Mappi
+    </div>
     <div id="AikaTaulu">
-       Aikataulut tulee tähän.
+        Aikataulut tulee tähän.
     </div>
     <div id="mainos">
         Mainos
     </div>
 </div>
 <div id="buttonZoom">
-    <button id="resize"> <!--onclick="isomap();"-->Suurenna</button>
+    <button id="resize">Suurenna</button>
 </div>
 <script>
     $('#resize').click(function muutakoko(){
@@ -32,8 +34,8 @@
                 $(kartta).toggleClass('fullscreen map');
                 initMap();
                 return false;
-            }else{
                 $(this).html('Suurenna');
+            }else{
                 $(kartta).toggleClass('map fullscreen');
                 initMap();
             }

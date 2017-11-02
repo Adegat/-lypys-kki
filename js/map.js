@@ -2,30 +2,43 @@
 function initMap() {
     var uluru = {lat: 60.2208061, lng: 24.8053184};
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 17,
-        center: uluru
+        zoom: 16,
+        center: uluru,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false
     });
     var marker = new google.maps.Marker({
         position: uluru,
         map: map
-
-
     });
+    var infoWindow = new google.maps.InfoWindow;
 
-}
-/*
-$('#resize').click(function muutakoko(){
-        var kartta = document.getElementById("map");
-        var value = $(this).html();
-        if(value != 'Piennennä'){
-            $(this).html('Piennennä');
-            $(kartta).toggleClass('fullscreen map');
-            initMap();
-            return false;
-        }else{
-            $(this).html('Suurenna');
-            $(kartta).toggleClass('map fullscreen');
-            initMap();
-        }
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('location');
+            infoWindow.open(map);
+            map.setCenter(pos);
+            marker.position(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
     }
-)*/
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+}
