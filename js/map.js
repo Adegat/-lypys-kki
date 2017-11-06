@@ -1,4 +1,6 @@
-
+/*
+* Luo google maps elementin ja hake kartan keskityksen locaatiao tietojen perusteella
+* */
 function initMap() {
     var uluru = {lat: 60.2208061, lng: 24.8053184};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -22,10 +24,9 @@ function initMap() {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
             infoWindow.setPosition(pos);
-            infoWindow.setContent('location');
+            infoWindow.setContent(marker);
             infoWindow.open(map);
             map.setCenter(pos);
-            marker.position(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });

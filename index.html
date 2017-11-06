@@ -13,19 +13,19 @@
 <div id="parentdiv">
     <div id="time"></div>
     <div class="map" id="map">
-        Mappi
+        Mappi <!-- Google maps tulee tähän -->
     </div>
     <div id="AikaTaulu">
-        Aikataulut tulee tähän.
+        Aikataulut tulee tähän. <!--Älybussi ja hsl aikataulut tänne-->
     </div>
     <div id="mainos">
-        Mainos
+        Mainos <!-- Mahdolliset mainokset -->
     </div>
 </div>
-<div id="buttonZoom">
+<div id="buttonZoom"> <!-- Kartan suurenus nappula -->
     <button id="resize">Suurenna</button>
 </div>
-<script>
+<script> /* kartan suurennus funktio */
     $('#resize').click(function muutakoko(){
             var kartta = document.getElementById("map");
             var value = $(this).html();
