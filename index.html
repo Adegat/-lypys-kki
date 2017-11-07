@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js/map.js"></script>
-    <script src="js/gmap-fullscreen.js"></script>
+    <script src="js/aikatauluhsl.js"></script>
     <script src="js/info.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
     <script src="js/time.js"></script>
@@ -13,7 +13,9 @@
 <body onload="startTime()">
 <div id="parentdiv">
     <div id="time"></div>
-    <div class="map" id="map"></div>
+    <div class="map" id="map">
+        <!-- Google maps tulee tähän -->
+    </div>
     <div id="AikaTaulu">
         <ul id="aikataulu"></ul>
         <script>
@@ -31,12 +33,10 @@
             $("#aikataulu").append(list);
         });
         </script>
+
     </div>
 
-
     <div id="mainos">
-
-        Mainos
 
     </div>
 
@@ -47,8 +47,8 @@
     <button id="info" onclick="myInfo()">Info</button>
 </div>
 
-
 <script>
+
     $('#resize').click(function muutakoko(){
             var kartta = document.getElementById("map");
             var value = $(this).html();
@@ -57,8 +57,8 @@
                 $(kartta).toggleClass('fullscreen map');
                 initMap();
                 return false;
-            }else{
                 $(this).html('Suurenna');
+            }else{
                 $(kartta).toggleClass('map fullscreen');
                 initMap();
             }

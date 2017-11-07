@@ -1,4 +1,6 @@
-
+/*
+* Luo kellon
+* */
 
 function startTime() {
     var today = new Date();
