@@ -61,6 +61,8 @@ body{
 }
 #info{
     font-size: 50px;
+    background-color: orangered;
+    bottom: 0;
     height: 100%;
 
 }
