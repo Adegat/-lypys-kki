@@ -51,6 +51,7 @@ body{
 #mainos{
     font-size: 150px;
     padding: 100px;
-    background-color: darkgreen;
+    background-color: orangered;
+    bottom: 0;
     height: 100%;
 }
