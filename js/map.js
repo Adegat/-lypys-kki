@@ -13,19 +13,20 @@ function initMap() {
         rotateControl: false,
         fullscreenControl: false
     });
-    var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
+
+
     var infoWindow = new google.maps.InfoWindow;
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+            var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            var marker = new google.maps.Marker({
+                position: coords,
+                map: map
+            });
             infoWindow.setPosition(pos);
-            infoWindow.setContent(marker);
-            infoWindow.open(map);
             map.setCenter(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -34,6 +35,7 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

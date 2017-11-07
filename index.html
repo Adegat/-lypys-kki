@@ -15,11 +15,13 @@
     <div class="map" id="map">
         Mappi <!-- Google maps tulee tähän -->
     </div>
-    <div id="AikaTaulu">
-        Aikataulut tulee tähän. <!--Älybussi ja hsl aikataulut tänne-->
-    </div>
-    <div id="mainos">
-        Mainos <!-- Mahdolliset mainokset -->
+    <div id="chili">
+        <div id="AikaTaulu">
+            Aikataulut tulee tähän. <!--Älybussi ja hsl aikataulut tänne-->
+        </div>
+        <div id="mainos">
+            Mainos <!-- Mahdolliset mainokset -->
+        </div>
     </div>
 </div>
 <div id="buttonZoom"> <!-- Kartan suurenus nappula -->
@@ -28,15 +30,18 @@
 <script> /* kartan suurennus funktio */
     $('#resize').click(function muutakoko(){
             var kartta = document.getElementById("map");
+            var chili = document.getElementById("chili")
             var value = $(this).html();
             if(value != 'Piennennä'){
                 $(this).html('Piennennä');
                 $(kartta).toggleClass('fullscreen map');
+                $(chili).addClass('katoa')
                 initMap();
                 return false;
-                $(this).html('Suurenna');
             }else{
+                $(this).html('Suurenna');
                 $(kartta).toggleClass('map fullscreen');
+                $(chili).removeClass('katoa')
                 initMap();
             }
         }
