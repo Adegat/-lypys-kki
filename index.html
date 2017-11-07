@@ -16,7 +16,9 @@
     <div class="map" id="map">
         <!-- Google maps tulee tähän -->
     </div>
-    <div id="AikaTaulu">
+
+    <div id="chili">
+        <div id="AikaTaulu">
         <ul id="aikataulu"></ul>
         <script>
             var times = new Array();
@@ -25,18 +27,18 @@
             times[2] = "12:06";
             times[3] = "12:09";
 
-        $(function(){
-            var list = "";
-            for(i=0; i<times.length; i++){
-                list +="<ul>"+times[i]+"</ul>";
-            }
-            $("#aikataulu").append(list);
-        });
+            $(function(){
+                var list = "";
+                for(i=0; i<times.length; i++){
+                    list +="<ul>"+times[i]+"</ul>";
+                }
+                $("#aikataulu").append(list);
+            });
         </script>
-
-    </div>
-
-    <div id="mainos">
+        </div>
+        <div id="mainos">
+            Mainos <!-- Mahdolliset mainokset -->
+        </div>
 
     </div>
 
@@ -51,15 +53,18 @@
 
     $('#resize').click(function muutakoko(){
             var kartta = document.getElementById("map");
+            var chili = document.getElementById("chili")
             var value = $(this).html();
             if(value != 'Piennennä'){
                 $(this).html('Piennennä');
                 $(kartta).toggleClass('fullscreen map');
+                $(chili).addClass('katoa')
                 initMap();
                 return false;
-                $(this).html('Suurenna');
             }else{
+                $(this).html('Suurenna');
                 $(kartta).toggleClass('map fullscreen');
+                $(chili).removeClass('katoa')
                 initMap();
             }
         }
