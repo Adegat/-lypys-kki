@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js/map.js"></script>
@@ -8,17 +9,19 @@
     <script src="js/info.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
     <script src="js/time.js"></script>
+	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 </head>
 
 <body onload="startTime()">
 <div id="parentdiv">
-    <div id="time"></div>
+    <center><div id="time"></div></center>
     <div class="map" id="map">
         <!-- Google maps tulee tähän -->
     </div>
 
     <div id="chili">
         <div id="AikaTaulu">
+		<center><h6 style="margin-bottom:0;">Aikataulu</h6></center>
         <ul id="aikataulu"></ul>
         <script>
             var times = new Array();
@@ -37,7 +40,7 @@
         </script>
         </div>
         <div id="mainos">
-            <img src="img/MetropoliaLogo.png">
+            <center><img id="mainosLogo" width="275em" src="img/MetropoliaLogo.png"></center>
              <!-- Mahdolliset mainokset -->
         </div>
 
@@ -47,11 +50,16 @@
 
 <div id="buttonZoom">
     <button id="resize"> <!--onclick="isomap();"-->Suurenna</button><br>
-    <button id="info" onclick="myInfo()">Info</button>
+    <a id="go" href="#infoText"><button id="info">Info</button></a>
+</div>
+
+<div id="infoText">	
+    <h1>Älybussipysäkki</h1>
+	<p>Sohjoa projekti</p>
 </div>
 
 <script>
-
+	$("#go").leanModal();
     $('#resize').click(function muutakoko(){
             var kartta = document.getElementById("map");
             var chili = document.getElementById("chili")

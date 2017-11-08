@@ -1,5 +1,6 @@
 
 html, body{
+	font-family: "Arial";
     background-image: url("Taustakuva.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -10,10 +11,9 @@ html, body{
 }
 #time{
     font-size: 100px;
-    font-family: "Times New Roman";
     color: white;
-    padding-left: 50%;
-    background-color: #ff0080;
+    /*padding-left: 50%;*/
+    background-color: #143DA3;
     position: relative;
  }
 #parentdiv{
@@ -37,12 +37,17 @@ html, body{
     float: right;
     width: 30%;
     height: 990px;
-    background-color: chocolate;
+    background-color: #163354;
     font-size: 90px;
     font-size: 100px;
+	color: white;
     right: 0;
-
  }
+ 
+ #aikataulu{
+	 margin-top:0.5em;
+ }
+ 
 #buttonZoom{
     position: absolute;
     right: 10px;
@@ -52,9 +57,35 @@ html, body{
 #mainos{
     background-color: orangered;
 }
+#mainosLogo{
+	margin: 5em;
+}
+
 #resize{
     font-size: 50px;
 }
 #info{
     font-size: 50px;
+}
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+#infoText {
+width: 600px;
+padding: 30px;
+display: none;
+background: #FFF;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
 }
