@@ -67,13 +67,13 @@
             if(value != 'Piennennä'){
                 $(this).html('Piennennä');
                 $(kartta).toggleClass('fullscreen map');
-                $(chili).addClass('katoa')
+                $(chili).addClass('katoa');
                 initMap();
                 return false;
             }else{
                 $(this).html('Suurenna');
                 $(kartta).toggleClass('map fullscreen');
-                $(chili).removeClass('katoa')
+                $(chili).removeClass('katoa');
                 initMap();
             }
         }
