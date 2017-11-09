@@ -51,7 +51,7 @@ html, body{
 #buttonZoom{
     position: absolute;
     right: 10px;
-    top: 101px;
+    top: 115px;
     z-index: 11;
 }
 #mainos{

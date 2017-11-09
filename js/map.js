@@ -18,9 +18,8 @@ function initMap() {
         position: uluru,
         map: map
     });
-*/
 
-    /*    var infoWindow = new google.maps.InfoWindow;
+    var infoWindow = new google.maps.InfoWindow;
      /*   // Try HTML5 geolocation.
        if (navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(function(position) {
@@ -92,13 +91,6 @@ function initMap() {
                 directionsDisplay.setDirections(result);
             }
         });
-
-
-
-
-
-
-
 
 
 
