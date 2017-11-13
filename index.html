@@ -10,25 +10,24 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
     <script src="js/time.js"></script>
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+	<script src="https://use.fontawesome.com/fa1c56c54e.js"></script>
 </head>
 
 <body onload="startTime()">
 <div id="parentdiv">
     <center><div id="time"></div></center>
+	<div class="notices"><marquee behavior="scroll" direction="left"><p id="incl"></p></marquee></div>
     <div class="map" id="map">
         <!-- Google maps tulee tähän -->
     </div>
-
+	
     <div id="chili">
         <div id="AikaTaulu">
-		<center><h6 style="margin-bottom:0;">Aikataulu</h6></center>
+		<center><h4 style="margin-bottom:0;">Älybussi</h4><i class="fa fa-bus" aria-hidden="true"></i></center>
         <ul id="aikataulu"></ul>
         <script>
             var times = new Array();
-            times[0] = "12:00";
-            times[1] = "12:03";
-            times[2] = "12:06";
-            times[3] = "12:09";
+            times[0] = "Seuraavaan 5 minuuttia";
 
             $(function(){
                 var list = "";
@@ -39,6 +38,25 @@
             });
         </script>
         </div>
+		<div id="HSLroutes">
+			<center><h4 style="margin-bottom:0;">HSL</h4></center>
+			<ul id="hsl_aikataulu"></ul>
+			<script>
+            var hsl_times = new Array();
+            hsl_times[0] = "12:00 Esimerkkitie";
+			hsl_times[1] = "12:05";
+			hsl_times[2] = "12:08";
+			hsl_times[3] = "12:13";
+
+            $(function(){
+                var list = "";
+                for(i=0; i<hsl_times.length; i++){
+                    list +="<ul>"+hsl_times[i]+"</ul>";
+                }
+                $("#hsl_aikataulu").append(list);
+            });
+			</script>
+		</div>
         <div id="mainos">
             <center><img id="mainosLogo" width="275em" src="img/MetropoliaLogo.png"></center>
              <!-- Mahdolliset mainokset -->
@@ -78,6 +96,9 @@
             }
         }
     )
+	$(function(){
+      $("#incl").load("data/notices.html"); 
+    });
 </script>
 </body>
 </html>
