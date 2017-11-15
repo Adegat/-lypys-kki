@@ -1,6 +1,7 @@
 /*
 * Luo google maps elementin ja hake kartan keskityksen locaatiao tietojen perusteella
 * */
+
 function initMap() {
     var uluru = {lat: 60.180700, lng: 24.831451};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -14,10 +15,40 @@ function initMap() {
         rotateControl: false,
         fullscreenControl: false
     });
-  /*  var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
+	
+	
+	
+			
+	function markerLoop() {    
+		var busPos;
+		marker.setMap(null);
+		$.ajax({
+			url: root + '/positions',
+			method: 'GET',
+			dataType : "json",
+			contentType: "application/json; charset=utf-8",
+			headers: {
+			"Authorization": "Basic " + btoa('admin' + ":" + 'admin')
+			}
+			}).then(function(data2) {
+			console.log(data2);
+			busPos = {lat:data2[0].latitude,lng:data2[0].longitude};
+			console.log(data2[0].longitude);
+			console.log(busPos);
+			console.log("location updated");
+			console.log(busPos);
+			var marker = new google.maps.Marker({
+			position: busPos, 
+			map: map,
+			title: 'Hello World!'
+			});
+			});
+		}
+	setInterval(function(){ markerLoop(); }, 3000);
+	
+	
+
+	/*
 
     var infoWindow = new google.maps.InfoWindow;
      /*   // Try HTML5 geolocation.
@@ -94,8 +125,10 @@ function initMap() {
         });
 
 
-
+		
 }
+
+
 /*
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
