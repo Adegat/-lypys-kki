@@ -29,7 +29,7 @@ html, body{
 
 .map{
     width: 70%;
-    height: 990px;
+    height: 80%;
     float: left;
 }
 .fullscreen {
@@ -43,7 +43,7 @@ html, body{
 #AikaTaulu{
     float: right;
     width: 30%;
-    height: 200px;
+    height: 14em;
     background-color: #163354;
     font-size: 2rem;
 	color: white;
@@ -53,7 +53,7 @@ html, body{
  #HSLroutes{
 	float: right;
     width: 30%;
-    height: 790px;
+    height: 25em;
     background-color: #163388;
 	font-size: 2rem;
 	color: white;
@@ -68,13 +68,16 @@ html, body{
 }
 #mainos{
     background-color: orangered;
+    height: 20%;
 }
 #mainosLogo{
-	margin: 5em;
+	margin: 10em;
 }
 
 #resize{
     font-size: 50px;
+    background-color: crimson;
+
 }
 #info{
     font-size: 50px;

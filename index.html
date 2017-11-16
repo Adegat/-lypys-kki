@@ -67,7 +67,7 @@
 </div>
 
 <div id="buttonZoom">
-    <button id="resize"> <!--onclick="isomap();"-->Suurenna</button><br>
+    <button id="resize"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </button><br>
     <a id="go" href="#infoText"><button id="info">Info</button></a>
 </div>
 
@@ -118,14 +118,14 @@
             var kartta = document.getElementById("map");
             var chili = document.getElementById("chili")
             var value = $(this).html();
-            if(value != 'Piennennä'){
-                $(this).html('Piennennä');
+            if(value != '<i class="fa fa-minus-circle" aria-hidden="true"></i>'){
+                $(this).html('<i class="fa fa-minus-circle" aria-hidden="true"></i>');
                 $(kartta).toggleClass('fullscreen map');
                 $(chili).addClass('katoa');
                 initMap();
                 return false;
             }else{
-                $(this).html('Suurenna');
+                $(this).html('<i class="fa fa-plus-circle" aria-hidden="true"></i>');
                 $(kartta).toggleClass('map fullscreen');
                 $(chili).removeClass('katoa');
                 initMap();

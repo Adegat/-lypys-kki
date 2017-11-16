@@ -17,8 +17,7 @@ function initMap() {
     });
 	
 	
-	
-			
+
 	function markerLoop() {    
 		var busPos;
 		marker.setMap(null);
