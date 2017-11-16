@@ -43,9 +43,17 @@ function initMap() {
 			});
 			});
 		}
-	setInterval(function(){ markerLoop(); }, 3000);
+	//setInterval(function(){ markerLoop(); }, 3000);
 	
-	
+	//Example bus location
+	var image = 'img/bus.png';
+	var marker = new google.maps.Marker({
+			position: {lat:60.180700, lng:24.831451}, 
+			map: map,
+			title: 'Smartbus',
+			optimized: false,
+			icon: image
+	});
 
 	/*
 
@@ -82,11 +90,29 @@ function initMap() {
         ['Manly Beach',60.180700, 24.831451, 1],
         ['Bondi Beach',60.181969, 24.830747, 2],
         ['Coogee Beach',60.183031, 24.829004, 3],
-         /*['Maroubra Beach', -33.950198, 151.259302, 1],
-        ['Cronulla Beach', -34.028249, 151.157507, 3]*/
     ];
-
-        directionsDisplay = new google.maps.DirectionsRenderer();
+	var image = 'https://emojipedia-us.s3.amazonaws.com/thumbs/160/lg/35/bus-stop_1f68f.png';
+	var marker = new google.maps.Marker({
+			position: {lat:60.180700, lng:24.831451}, 
+			map: map,
+			title: 'Pysäkki 1',
+			icon: image
+	});
+	var marker = new google.maps.Marker({
+			position: {lat:60.181969, lng:24.830747}, 
+			map: map,
+			title: 'Pysäkki 2',
+			icon: image
+	});
+	var marker = new google.maps.Marker({
+			position: {lat:60.183031, lng:24.829004}, 
+			map: map,
+			title: 'Pysäkki 3',
+			icon: image
+	});
+        directionsDisplay = new google.maps.DirectionsRenderer({
+			suppressMarkers:true
+		});
         directionsDisplay.setMap(map);
         var infowindow = new google.maps.InfoWindow();
         var marker, i;
@@ -94,7 +120,10 @@ function initMap() {
             travelMode: google.maps.TravelMode.DRIVING
         };
         for (i = 0; i < locations.length; i++) {
+			var image = 'img/bus.png';
+			console.log(image);
             marker = new google.maps.Marker({
+				icon: image,
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             });
 
