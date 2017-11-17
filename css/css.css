@@ -43,7 +43,7 @@ html, body{
 #AikaTaulu{
     float: right;
     width: 30%;
-    height: 14em;
+    height: 30%;
     background-color: #163354;
     font-size: 2rem;
 	color: white;
@@ -53,13 +53,15 @@ html, body{
  #HSLroutes{
 	float: right;
     width: 30%;
-    height: 25em;
+    height: 70%;
     background-color: #163388;
 	font-size: 2rem;
 	color: white;
     right: 0;
 }
- 
+ #chili{
+     height: 80%;
+ }
 #buttonZoom{
     position: absolute;
     right: 10px;
@@ -69,14 +71,17 @@ html, body{
 #mainos{
     background-color: orangered;
     height: 20%;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
 }
 #mainosLogo{
-	margin: 10em;
+	margin: 20px;
 }
 
 #resize{
     font-size: 50px;
-    background-color: crimson;
+    background-color: cornflowerblue;
 
 }
 #info{
