@@ -2,6 +2,8 @@
 * Luo google maps elementin ja hake kartan keskityksen locaatiao tietojen perusteella
 * */
 
+var image = 'http://www.emoji.co.uk/files/apple-emojis/travel-places-ios/482-trolleybus.png';
+
 function initMap() {
     var uluru = {lat: 60.180700, lng: 24.831451};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -16,11 +18,11 @@ function initMap() {
         fullscreenControl: false
     });
 	
-	
-
 	function markerLoop() {    
 		var busPos;
-		marker.setMap(null);
+		var busLocMarkers = [];
+		marker.setMap(null)
+		marker = null;
 		$.ajax({
 			url: root + '/positions',
 			method: 'GET',
@@ -30,21 +32,30 @@ function initMap() {
 			"Authorization": "Basic " + btoa('admin' + ":" + 'admin')
 			}
 			}).then(function(data2) {
-			console.log(data2);
+			//console.log(data2);
 			busPos = {lat:data2[0].latitude,lng:data2[0].longitude};
-			console.log(data2[0].longitude);
+			//console.log(data2[0].longitude);
+			//console.log(busPos);
+			//console.log("location updated");
 			console.log(busPos);
-			console.log("location updated");
-			console.log(busPos);
-			var marker = new google.maps.Marker({
-			position: busPos, 
-			map: map,
-			title: 'Hello World!'
+			
+			busLocMarkers.push(busPos);
+			
+			function createLocMarker(map){
+  			marker = new google.maps.Marker({
+				position: busLocMarkers[0], 
+				map: map,
+				title: 'Smart Bus',
+				icon: image
 			});
+			}
+			
+			createLocMarker(null);
+			createLocMarker(map);
 			});
 		}
-	//setInterval(function(){ markerLoop(); }, 3000);
-	
+	setInterval(function(){ markerLoop(); }, 1000);
+	/*
 	//Example bus location
 	var image = 'img/bus.png';
 	var marker = new google.maps.Marker({
@@ -55,7 +66,7 @@ function initMap() {
 			icon: image
 	});
 
-	/*
+	
 
     var infoWindow = new google.maps.InfoWindow;
      /*   // Try HTML5 geolocation.
@@ -91,24 +102,24 @@ function initMap() {
         ['Bondi Beach',60.181969, 24.830747, 2],
         ['Coogee Beach',60.183031, 24.829004, 3],
     ];
-	var image = 'https://emojipedia-us.s3.amazonaws.com/thumbs/160/lg/35/bus-stop_1f68f.png';
+	var imageStop = 'https://emojipedia-us.s3.amazonaws.com/thumbs/160/lg/35/bus-stop_1f68f.png';
 	var marker = new google.maps.Marker({
 			position: {lat:60.180700, lng:24.831451}, 
 			map: map,
 			title: 'Pysäkki 1',
-			icon: image
+			icon: imageStop
 	});
 	var marker = new google.maps.Marker({
 			position: {lat:60.181969, lng:24.830747}, 
 			map: map,
 			title: 'Pysäkki 2',
-			icon: image
+			icon: imageStop
 	});
 	var marker = new google.maps.Marker({
 			position: {lat:60.183031, lng:24.829004}, 
 			map: map,
 			title: 'Pysäkki 3',
-			icon: image
+			icon: imageStop
 	});
         directionsDisplay = new google.maps.DirectionsRenderer({
 			suppressMarkers:true
@@ -120,7 +131,7 @@ function initMap() {
             travelMode: google.maps.TravelMode.DRIVING
         };
         for (i = 0; i < locations.length; i++) {
-			var image = 'img/bus.png';
+			var imageStop = 'img/bus.png';
 			console.log(image);
             marker = new google.maps.Marker({
 				icon: image,
@@ -145,7 +156,6 @@ function initMap() {
             }
 
         }
-
         directionsService.route(request, function(result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(result);
