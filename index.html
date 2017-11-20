@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script src="jquery-3.2.1.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
     <script src="js/map.js"></script>
     <script src="js/aikatauluhsl.js"></script>
     <script src="js/info.js"></script>
@@ -24,15 +23,15 @@
     <div id="chili">
         <div id="AikaTaulu">
 		<center><h4 style="margin-bottom:0;">Älybussi</h4><i class="fa fa-bus" aria-hidden="true"></i></center>
-        <ul id="aikataulu"></ul>
+        <blink><center><p id="aikataulu"></p></center><blink>
         <script>
             var times = new Array();
-            times[0] = "Seuraavaan ~5 minuuttia";
+            times[0] = "~5 Min";
 
             $(function(){
                 var list = "";
                 for(i=0; i<times.length; i++){
-                    list +="<ul>"+times[i]+"</ul>";
+                    list +="<p>"+times[i]+"</p>";
                 }
                 $("#aikataulu").append(list);
             });
@@ -43,10 +42,10 @@
 			<ul id="hsl_aikataulu"></ul>
 			<script>
             var hsl_times = new Array();
-            hsl_times[0] = "12:00 Esimerkkitie";
-			hsl_times[1] = "12:05";
-			hsl_times[2] = "12:08";
-			hsl_times[3] = "12:13";
+            hsl_times[0] = "102 Kamppi 12:00";
+			hsl_times[1] = "103 Kamppi 12:05";
+			hsl_times[2] = "194 Kamppi 12:08";
+			hsl_times[3] = "102 Kamppi 12:13";
 
             $(function(){
                 var list = "";
@@ -137,5 +136,6 @@
       $("#incl").load("data/notices.html"); 
     });
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
 </body>
 </html>
