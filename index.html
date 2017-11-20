@@ -78,7 +78,6 @@
 
 <script>
 	var root = 'http://localhost:8082/api';
-
 	
 	$.ajax({
 	url: root + '/session',
@@ -89,29 +88,14 @@
 			password: 'admin'
 		}
 	}).then(function(data) {
-		console.log(data);
-	});
-	
-	$.ajax({
-	url: root + '/session',
-		method: 'POST',
-		contentType:'application/x-www-form-urlencoded',
-		data: { 
-			email: 'admin', 
-			password: 'admin'
-		}
-	}).then(function(data) {
-		console.log(data);
+		//console.log(data);
 	});
 
-	
-	
 	/*var marker = new google.maps.Marker({
 		position: data2[0].latitude + data2[0].longitude, 
 		map: map,
 		title: 'Hello World!'
 	});*/
-	
 	
 	$("#go").leanModal();
     $('#resize').click(function muutakoko(){
@@ -132,10 +116,9 @@
             }
         }
     )
-	$(function(){
-      $("#incl").load("data/notices.html"); 
-    });
+
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
+<script src="js/notices.js"></script>
 </body>
 </html>
