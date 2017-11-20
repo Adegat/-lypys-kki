@@ -2,7 +2,8 @@
 * Luo google maps elementin ja hake kartan keskityksen locaatiao tietojen perusteella
 * */
 
-var image = 'http://www.emoji.co.uk/files/apple-emojis/travel-places-ios/482-trolleybus.png';
+var imageBus = 'http://www.emoji.co.uk/files/apple-emojis/travel-places-ios/482-trolleybus.png';
+var imageStop = 'img/pysakki2.png';
 
 function initMap() {
     var uluru = {lat: 60.180700, lng: 24.831451};
@@ -46,7 +47,7 @@ function initMap() {
 				position: busLocMarkers[0], 
 				map: map,
 				title: 'Smart Bus',
-				icon: image
+				icon: imageBus
 			});
 			}
 			
@@ -54,7 +55,7 @@ function initMap() {
 			createLocMarker(map);
 			});
 		}
-	setInterval(function(){ markerLoop(); }, 1000);
+	//setInterval(function(){ markerLoop(); }, 1000);
 	/*
 	//Example bus location
 	var image = 'img/bus.png';
@@ -89,9 +90,6 @@ function initMap() {
        }*/
 
 
-
-
-
 /* Reitin piirto*/
 
     var geocoder;
@@ -102,7 +100,7 @@ function initMap() {
         ['Bondi Beach',60.181969, 24.830747, 2],
         ['Coogee Beach',60.183031, 24.829004, 3],
     ];
-	var imageStop = 'https://emojipedia-us.s3.amazonaws.com/thumbs/160/lg/35/bus-stop_1f68f.png';
+	
 	var marker = new google.maps.Marker({
 			position: {lat:60.180700, lng:24.831451}, 
 			map: map,
@@ -131,10 +129,7 @@ function initMap() {
             travelMode: google.maps.TravelMode.DRIVING
         };
         for (i = 0; i < locations.length; i++) {
-			var imageStop = 'img/bus.png';
-			console.log(image);
             marker = new google.maps.Marker({
-				icon: image,
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             });
 
@@ -161,11 +156,7 @@ function initMap() {
                 directionsDisplay.setDirections(result);
             }
         });
-
-
-		
 }
-
 
 /*
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
