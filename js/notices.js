@@ -1,5 +1,5 @@
 $.ajax({
-		url: 'data/notices.json',
+		url: 'data/config.json',
 		header: ('Content-Type: application/json; charset=utf-8'),
 		method: 'GET'
 	}).then(function(data) {

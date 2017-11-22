@@ -1,7 +1,8 @@
 
 html, body{
+	overflow: hidden;
 	font-family: "Arial";
-    background-image: url("Taustakuva.jpg");
+    background-image: url("../img/spinner.gif");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
