@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script src="jquery-3.2.1.min.js"></script>
+    <script src="js/date.js"></script>
     <script src="js/map.js"></script>
     <script src="js/aikatauluhsl.js"></script>
     <script src="js/info.js"></script>
@@ -59,7 +60,7 @@
                     var name = res.data.stop.name;
                     var divisor = 0.000277777778;
                     var data = res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture;
-                    var divided = data*divisor;
+                    var divided = (data*divisor) %24;
                     var display = divided.toFixed(2);
                     var buss = res.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName;
                     var destination = res.data.stop.stoptimesWithoutPatterns[i].trip.tripHeadsign;
