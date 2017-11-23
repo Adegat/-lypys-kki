@@ -38,9 +38,19 @@
         </div>
 		<div id="HSLroutes">
 			<center><h4 style="margin-bottom:0;">HSL</h4></center>
-			<ul id="hsl_aikataulu"></ul>
-            <ul id="hsl_bussit"></ul>
-            <ul id="hsl_kohde"</ul>
+                <table id="table" class="table table-condensed" cellspacing="10">
+                <tr>
+                    <th>Time</th>
+                    <th>Buss</th>
+                    <th>Destination</th>
+                </tr>
+            </table>
+			<div class="hsl123"><ul id="hsl_aikataulu"></ul></div>
+
+            <div class="hsl123"><ul id="hsl_bussit"></ul></div>
+
+            <div class="hsl123"><ul id="hsl_kohde"</ul></div>
+
 			<script>
 
                 fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
@@ -69,9 +79,12 @@
                     var result = date.toISOString().substr(11, 8);
                     var slice = result.slice(0 , -3);
 
-                    document.getElementById("hsl_bussit").append('<p>' + (buss) +'</p>');
-                    document.getElementById("hsl_kohde").append('<br>' + destination +'</br>');
-                    document.getElementById("hsl_aikataulu").append('<tr>' +slice + '</tr>');
+                    // jos document.getElementById, niin koodi on javascriptiä
+                    // jos taas $('#hsl_bussit'). niin koodi on Jqueryä
+                    $('#hsl_bussit').append('<li>' + buss +'</li>');
+                    //document.getElementById("hsl_bussit").append('<li>' + buss +'</li>');
+                    $('#hsl_kohde').append('<li>' + destination +'</li>');
+                    $('#hsl_aikataulu').append('<li>' +slice + '</li>');
 
                 }
                 });
