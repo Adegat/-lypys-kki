@@ -42,7 +42,7 @@ function initMap() {
 			//console.log(data2[0].longitude);
 			//console.log(busPos);
 			//console.log("location updated");
-			console.log(busPos);
+			//console.log(busPos);
 			
 			busLocMarkers.push(busPos);
 			
@@ -59,7 +59,7 @@ function initMap() {
 			createLocMarker(map);
 			});
 		}
-	//setInterval(function(){ markerLoop(); }, 1000);
+	setInterval(function(){ markerLoop(); }, 5000);
 	////////////////////Bus GPS tracking/////////////////////////
 
 /* Reitin piirto*/
@@ -69,27 +69,55 @@ function initMap() {
     var directionsService = new google.maps.DirectionsService();
     var locations = [
         ['Manly Beach',60.180700, 24.831451, 1],
-        ['Bondi Beach',60.181969, 24.830747, 2],
-        ['Coogee Beach',60.183031, 24.829004, 3],
+		['Otaniemi', 60.180972, 24.830825, 2],
+        ['Bondi Beach',60.181969, 24.830747, 3],
+        ['Coogee Beach',60.183031, 24.829004, 4],
     ];
 	
 	var marker = new google.maps.Marker({
 			position: {lat:60.180700, lng:24.831451}, 
 			map: map,
 			title: 'Pysäkki 1',
-			icon: imageStop
+			icon: {
+				labelOrigin: new google.maps.Point(51, 50),
+				url: imageStop,
+				origin: new google.maps.Point(0, 0),
+			},
+			label: {
+				color: 'black',
+				fontWeight: 'bold',
+				text: 'Innovation alley',
+			}
 	});
 	var marker = new google.maps.Marker({
 			position: {lat:60.181969, lng:24.830747}, 
 			map: map,
 			title: 'Pysäkki 2',
-			icon: imageStop
+			icon: {
+				labelOrigin: new google.maps.Point(51, 50),
+				url: imageStop,
+				origin: new google.maps.Point(0, 0),
+			},
+			label: {
+				color: 'black',
+				fontWeight: 'bold',
+				text: 'Acre',
+			}
 	});
 	var marker = new google.maps.Marker({
 			position: {lat:60.183031, lng:24.829004}, 
 			map: map,
 			title: 'Pysäkki 3',
-			icon: imageStop
+			icon: {
+				labelOrigin: new google.maps.Point(51, 50),
+				url: imageStop,
+				origin: new google.maps.Point(0, 0),
+			},
+			label: {
+				color: 'black',
+				fontWeight: 'bold',
+				text: 'Valimo',
+			}
 	});
         directionsDisplay = new google.maps.DirectionsRenderer({
 			suppressMarkers:true
