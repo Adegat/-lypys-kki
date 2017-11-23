@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script src="jquery-3.2.1.min.js"></script>
-    <script src="js/date.js"></script>
     <script src="js/map.js"></script>
     <script src="js/aikatauluhsl.js"></script>
     <script src="js/info.js"></script>
@@ -58,16 +57,21 @@
 
                     // console.log(res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture);
                     var name = res.data.stop.name;
-                    var divisor = 0.000277777778;
+                    //var divisor = 0.000277777778;
                     var data = res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture;
-                    var divided = (data*divisor) %24;
-                    var display = divided.toFixed(2);
+                    //var divided = (data*divisor) %24;
+                    //var display = divided.toFixed(2);
                     var buss = res.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName;
                     var destination = res.data.stop.stoptimesWithoutPatterns[i].trip.tripHeadsign;
 
+                    var date = new Date(null);
+                    date.setSeconds(data); // specify value for SECONDS here
+                    var result = date.toISOString().substr(11, 8);
+                    var slice = result.slice(0 , -3);
+
                     document.getElementById("hsl_bussit").append('<p>' + (buss) +'</p>');
                     document.getElementById("hsl_kohde").append('<br>' + destination +'</br>');
-                    document.getElementById("hsl_aikataulu").append('<tr>' + display + '</tr>');
+                    document.getElementById("hsl_aikataulu").append('<tr>' +slice + '</tr>');
 
                 }
                 });
