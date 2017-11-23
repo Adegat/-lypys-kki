@@ -1,1 +1,1 @@
-# -lypys-kki
+# Älypysykki
