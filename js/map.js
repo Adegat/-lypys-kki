@@ -2,10 +2,13 @@
 * Luo google maps elementin ja hake kartan keskityksen locaatiao tietojen perusteella
 * */
 
-var imageBus = 'http://www.emoji.co.uk/files/apple-emojis/travel-places-ios/482-trolleybus.png';
-var imageStop = 'img/pysakki2.png';
-
 function initMap() {
+	var imageBus = {
+		url: 'img/bussi.png',
+		scaledSize: new google.maps.Size(75, 75), // scaled size
+	};
+	var imageStop = 'img/pysakki2.png';
+
     var uluru = {lat: 60.180700, lng: 24.831451};
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
@@ -19,6 +22,7 @@ function initMap() {
         fullscreenControl: false
     });
 	
+	////////////////////Bus GPS tracking/////////////////////////
 	function markerLoop() {    
 		var busPos;
 		var busLocMarkers = [];
@@ -56,39 +60,7 @@ function initMap() {
 			});
 		}
 	//setInterval(function(){ markerLoop(); }, 1000);
-	/*
-	//Example bus location
-	var image = 'img/bus.png';
-	var marker = new google.maps.Marker({
-			position: {lat:60.180700, lng:24.831451}, 
-			map: map,
-			title: 'Smartbus',
-			optimized: false,
-			icon: image
-	});
-
-	
-
-    var infoWindow = new google.maps.InfoWindow;
-     /*   // Try HTML5 geolocation.
-       if (navigator.geolocation) {
-           navigator.geolocation.getCurrentPosition(function(position) {
-               var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-               var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-               var marker = new google.maps.Marker({
-                   position: coords,
-                   map: map
-               });
-               infoWindow.setPosition(pos);
-               map.setCenter(pos);
-           }, function() {
-               handleLocationError(true, infoWindow, map.getCenter());
-           });
-       } else {
-           // Browser doesn't support Geolocation
-           handleLocationError(false, infoWindow, map.getCenter());
-       }*/
-
+	////////////////////Bus GPS tracking/////////////////////////
 
 /* Reitin piirto*/
 
@@ -157,13 +129,3 @@ function initMap() {
             }
         });
 }
-
-/*
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-}
-*/

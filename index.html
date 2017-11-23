@@ -9,7 +9,6 @@
     <script src="js/info.js"></script>
     <script src="js/time.js"></script>
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-	<script src="https://use.fontawesome.com/fa1c56c54e.js"></script>
 </head>
 
 <body onload="startTime()">
@@ -40,20 +39,38 @@
 		<div id="HSLroutes">
 			<center><h4 style="margin-bottom:0;">HSL</h4></center>
 			<ul id="hsl_aikataulu"></ul>
+            <ul id="hsl_bussit"></ul>
+            <ul id="hsl_kohde"</ul>
 			<script>
-            var hsl_times = new Array();
-            hsl_times[0] = "102 Kamppi 12:00";
-			hsl_times[1] = "103 Kamppi 12:05";
-			hsl_times[2] = "194 Kamppi 12:08";
-			hsl_times[3] = "102 Kamppi 12:13";
 
-            $(function(){
-                var list = "";
-                for(i=0; i<hsl_times.length; i++){
-                    list +="<ul>"+hsl_times[i]+"</ul>";
+                fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:5) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
+                })
+                    .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+
+
+                for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
+
+                    // console.log(res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture);
+                    var name = res.data.stop.name;
+                    var divisor = 0.000277777778;
+                    var data = res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture;
+                    var divided = data*divisor;
+                    var display = divided.toFixed(2);
+                    var buss = res.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName;
+                    var destination = res.data.stop.stoptimesWithoutPatterns[i].trip.tripHeadsign;
+
+                    document.getElementById("hsl_bussit").append('<p>' + (buss) +'</p>');
+                    document.getElementById("hsl_kohde").append('<br>' + destination +'</br>');
+                    document.getElementById("hsl_aikataulu").append('<tr>' + display + '</tr>');
+
                 }
-                $("#hsl_aikataulu").append(list);
-            });
+                });
+
 			</script>
 		</div>
         <div id="mainos">
@@ -78,28 +95,18 @@
 </div>
 
 <script>
+	//GPS tracking server ip example: 'http://11.111.111.111:8082/api';
 	var root = 'http://localhost:8082/api';
 	
-	$.ajax({
-	url: root + '/session',
-		method: 'POST',
-		contentType:'application/x-www-form-urlencoded',
-		data: { 
-			email: 'admin', 
-			password: 'admin'
-		}
-	}).then(function(data) {
-		//console.log(data);
-	});
-
 	/*var marker = new google.maps.Marker({
 		position: data2[0].latitude + data2[0].longitude, 
 		map: map,
 		title: 'Hello World!'
 	});*/
 	
-	$("#go").leanModal();
-    $('#resize').click(function muutakoko(){
+	$("#go").leanModal(); //launches info modal on click 
+    
+	function muutakoko(){ //change map size to larger and hide other elements on page
             var kartta = document.getElementById("map");
             var chili = document.getElementById("chili")
             var value = $(this).html();
@@ -115,12 +122,41 @@
                 $(chili).removeClass('katoa');
                 initMap();
             }
-        }
-    )
+    }
+	
+	$('#resize').click(muutakoko);
+	
+	//Keyboard variables
+	var pressed = 0;
+	var infoVisible = 0;
+	//Keyboard functions
+	document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 37 && pressed == 0) {
+		$('#resize').each(muutakoko);	
+		pressed = 1;
+		setTimeout(clearPress, 2000);
+    } else if (event.keyCode == 39 && pressed == 0) {
+		pressed = 1;
+		if (infoVisible == 0){
+			$("#go").click();
+			infoVisible = 1;
+		} else {
+			$("#lean_overlay").trigger("click");
+			infoVisible = 0;
+		}
+		setTimeout(clearPress, 2000);
+	}
+	//Keyboard functions
+	function clearPress(){
+		pressed = 0;
+	}
+
+});
 
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
 <script src="js/notices.js"></script>
 <script src="js/info2.js"></script>
+<script src="https://use.fontawesome.com/fa1c56c54e.js"></script>
 </body>
 </html>
