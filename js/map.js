@@ -21,6 +21,21 @@ function initMap() {
         rotateControl: false,
         fullscreenControl: false
     });
+
+    var marker = new google.maps.Marker({
+        position: {lat:60.182748, lng: 24.832112},
+        map: map,
+        title: 'HSL pysäkki',
+        icon: {
+            labelOrigin: new google.maps.Point(51, 50),
+            url: imageStop,
+            origin: new google.maps.Point(0, 0),
+        },
+        label: {
+            color: 'black',
+            fontWeight: 'bold',
+            text: 'Dipoli',
+        }})
 	
 	////////////////////Bus GPS tracking/////////////////////////
 	function markerLoop() {    
