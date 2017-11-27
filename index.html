@@ -8,6 +8,7 @@
     <script src="js/aikatauluhsl.js"></script>
     <script src="js/info.js"></script>
     <script src="js/time.js"></script>
+    <script src="js/hakufunktiot.js"></script>
 	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 </head>
 
@@ -53,7 +54,7 @@
 
             <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;Otakallio</h4>
 
-            <table id="table" class="table table-condensed" cellspacing="10">
+            <table id="table2" class="table table-condensed" cellspacing="10">
                 <tr>
                     <th>&nbsp;&nbsp;&nbsp;Time</th>
                     <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
@@ -61,69 +62,16 @@
                 </tr>
             </table>
 
-            <div class="hsl2123"><ul id="hsl_aikataulu2"></ul></div>
+            <div class="hsl123"><ul id="hsl_aikataulu2"></ul></div>
 
-            <div class="hsl2123"><ul id="hsl_bussit2"></ul></div>
+            <div class="hsl123"><ul id="hsl_bussit2"></ul></div>
 
-            <div class="hsl2123"><ul id="hsl_kohde2"</ul></div>
+            <div class="hsl123"><ul id="hsl_kohde2"</ul></div>
 
 			<script>
 
                 setInterval(function(){ HSL_Dipoli_haku() }, 60000);
-
-                function HSL_Dipoli_haku() {
-
-                    $("#hsl_kohde").empty();
-                    $("#hsl_aikataulu").empty();
-                    $("#hsl_bussit").empty();
-
-                fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:5) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
-                })
-                    .then(res => res.json())
-                .then(res => {
-                    console.log(res);
-
-                for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
-                    // console.log(res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture);
-                    var name = res.data.stop.name;
-                    var data = res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture;
-                    var buss = res.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName;
-                    destination = res.data.stop.stoptimesWithoutPatterns[i].trip.tripHeadsign;
-
-                    var date = new Date(null);
-                    date.setSeconds(data); // specify value for SECONDS here
-                    var result = date.toISOString().substr(11, 8);
-                    var slice = result.slice(0, -3);
-
-                    // jos document.getElementById, niin koodi on javascriptiä
-                    // jos taas $('#hsl_bussit'). niin koodi on Jqueryä
-
-                    $('#hsl_bussit').append('<li>' + buss + '</li>');
-                    $('#hsl_kohde').append('<li>' + destination + '</li>');
-                    $('#hsl_aikataulu').append('<li>' + slice + '</li>');
-
-                }
-                });
-
-
-
-                }
-                function HSL_Otakallio_haku() {
-                    $("#hsl_kohde2").empty();
-                    $("#hsl_aikataulu2").empty();
-                    $("#hsl_bussit2").empty();
-
-                    fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:5) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
-                    })
-
-                }
-
+                setInterval(function(){ HSL_Otakallio_haku() }, 60000);
 			</script>
 		</div>
         <div id="mainos">

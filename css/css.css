@@ -125,3 +125,15 @@ display: inline-block;
 .hsl123{
     display:inline-block;
 }
+#hsl_aikataulu2{
+    display: inline-block;
+    list-style-type: none;
+}
+#hsl_kohde2 {
+    display: inline-block;
+    list-style-type: none;
+}
+#hsl_bussit2{
+    display: inline-block;
+    list-style-type: none;
+}
