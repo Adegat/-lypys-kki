@@ -111,7 +111,18 @@
 
 
                 }
+                function HSL_Otakallio_haku() {
+                    $("#hsl_kohde2").empty();
+                    $("#hsl_aikataulu2").empty();
+                    $("#hsl_bussit2").empty();
 
+                    fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:5) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
+                    })
+
+                }
 
 			</script>
 		</div>
