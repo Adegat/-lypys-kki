@@ -1,5 +1,5 @@
 {
 	"_comment": "Neutraalit tiedotteet merkitään harmahtavalla sävyllä (level 1), Ruuhkatiedotteet keltaisella (level 2), vaara- ja hätäteidotteet punaisella pohjalla ja valkoisella fontilla. (level 3)",
-	"level": 2,
+	"level": 1,
 	"message": "Betonimiehenkuja 5 - Metallimiehenkuja 2, Otaniemi, Espoo"
 }
