@@ -22,20 +22,8 @@
 	
     <div id="chili">
         <div id="AikaTaulu">
-		<center><h4 style="margin-bottom:0;">Älybussi</h4><i class="fa fa-bus" aria-hidden="true"></i></center>
-        <blink><center><p id="aikataulu"></p></center><blink>
-        <script>
-            var times = new Array();
-            times[0] = "~5 Min";
-
-            $(function(){
-                var list = "";
-                for(i=0; i<times.length; i++){
-                    list +="<p>"+times[i]+"</p>";
-                }
-                $("#aikataulu").append(list);
-            });
-        </script>
+		<center><h4 style="margin-bottom:0;">Älybussi liikennöi</h4><i class="fa fa-bus" aria-hidden="true"></i></center>
+            <center><h3>9:00 - 13:30</h3></center>
         </div>
 		<div id="HSLroutes">
 			<h4 style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;Dipoli</h4>
@@ -92,18 +80,13 @@
     <h1>Älybussipysäkki</h1>
 	<p>Sohjoa projekti</p>
     <p id="infocontnet"></p>
+    <p id="infosv"></p>
     <p id="infoeng" ></p>
 </div>
 
 <script>
 	//GPS tracking server ip example: 'http://11.111.111.111:8082/api';
 	var root = 'http://localhost:8082/api';
-	
-	/*var marker = new google.maps.Marker({
-		position: data2[0].latitude + data2[0].longitude, 
-		map: map,
-		title: 'Hello World!'
-	});*/
 	
 	$("#go").leanModal(); //launches info modal on click 
     
@@ -157,7 +140,6 @@
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
 <script src="../../../../js/notices.js"></script>
-<script src="../../../../js/info2.js"></script>
 <link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css">
 </body>
 </html>
