@@ -7,7 +7,7 @@ fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
 })
     .then(res => res.json())
 .then(res => {
-    console.log(res);
+    //console.log(res);
 
 
 for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
@@ -40,7 +40,7 @@ fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
 })
     .then(res => res.json())
 .then(res => {
-    console.log(res);
+    //console.log(res);
 
 for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
     // console.log(res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture);

@@ -4,10 +4,10 @@
 
 function initMap() {
 	var imageBus = {
-		url: 'img/bussi.png',
+		url: '../../../../img/bussi.png',
 		scaledSize: new google.maps.Size(75, 75), // scaled size
 	};
-	var imageStop = 'img/pysakki2.png';
+	var imageStop = '../../../../img/pysakki2.png';
 
     var uluru = {lat: 60.180700, lng: 24.831451};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -74,7 +74,7 @@ function initMap() {
 			createLocMarker(map);
 			});
 		}
-	setInterval(function(){ markerLoop(); }, 5000);
+	//setInterval(function(){ markerLoop(); }, 5000);
 	////////////////////Bus GPS tracking/////////////////////////
 
 /* Reitin piirto*/
