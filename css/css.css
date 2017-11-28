@@ -113,31 +113,22 @@ box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
 -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
 -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
 }
-#hsl_aikataulu{
-display: inline-block;
-    list-style-type: none;
-}
-#hsl_kohde{
-    display: inline-block;
-    list-style-type: none;
-}
-#hsl_bussit{
-    display: inline-block;
-    list-style-type: none;
-}
+
 .hsl123{
     margin-top: -36px;
     display:inline-block;
+    list-style-type: none;
 }
-#hsl_aikataulu2{
+
+.sidebyside{
     display: inline-block;
     list-style-type: none;
 }
-#hsl_kohde2 {
+#teksti{
     display: inline-block;
-    list-style-type: none;
 }
-#hsl_bussit2{
-    display: inline-block;
-    list-style-type: none;
+#hsl_logo{
+    margin-bottom: 12em;
+    width: 5em;
+    right: 10px;
 }

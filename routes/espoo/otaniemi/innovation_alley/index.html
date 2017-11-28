@@ -25,37 +25,40 @@
 		<center><h4 style="margin-bottom:0;">Älybussi liikennöi</h4><i class="fa fa-bus" aria-hidden="true"></i></center>
             <center><h3>9:00 - 13:30</h3></center>
         </div>
-		<div id="HSLroutes">
-			<h4 style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;Dipoli</h4>
+		<div id="HSLroutes" class="sidebyside">
+
+            <div id="teksti">
+			    <h4 id="otsikko_hsl" style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;Dipoli</h4>
                 <table id="table" class="table table-condensed" cellspacing="10">
                 <tr>
                     <th>&nbsp;&nbsp;&nbsp;Time</th>
                     <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
                     <th>&nbsp;&nbsp;&nbsp;Destination</th>
                 </tr>
-            </table>
-			<div class="hsl123"><ul id="hsl_aikataulu"></ul></div>
+                </table>
+			    <div class="hsl123"><ul id="hsl_aikataulu" class="sidebyside"></ul></div>
 
-            <div class="hsl123"><ul id="hsl_bussit"></ul></div>
+                <div class="hsl123"><ul id="hsl_bussit" class="sidebyside"></ul></div>
 
-            <div class="hsl123"><ul id="hsl_kohde"</ul></div>
+                <div class="hsl123"><ul id="hsl_kohde" class="sidebyside"</ul></div>
 
-            <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;Otakallio</h4>
+                <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;Otakallio</h4>
 
-            <table id="table2" class="table table-condensed" cellspacing="10">
-                <tr>
-                    <th>&nbsp;&nbsp;&nbsp;Time</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
-                    <th>&nbsp;&nbsp;&nbsp;Destination</th>
-                </tr>
-            </table>
+                <table id="table2" class="table table-condensed" cellspacing="10">
+                    <tr>
+                        <th>&nbsp;&nbsp;&nbsp;Time</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
+                        <th>&nbsp;&nbsp;&nbsp;Destination</th>
+                    </tr>
+                </table>
 
             <div class="hsl123"><ul id="hsl_aikataulu2"></ul></div>
 
             <div class="hsl123"><ul id="hsl_bussit2"></ul></div>
 
             <div class="hsl123"><ul id="hsl_kohde2"</ul></div>
-
+            </div>
+            <img id="hsl_logo" src="../../../../img/hsl.svg">
 			<script>
                 setInterval(function(){ HSL_Dipoli_haku() }, 60000);
                 setInterval(function(){ HSL_Otakallio_haku() }, 60000);
