@@ -1,151 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../../../css/css.css">
-    <script src="../../../../jquery-3.2.1.min.js"></script>
-	<script src="getConfig.js"></script>
-    <script src="../../../../js/map.js"></script>
-    <script src="../../../../js/aikatauluhsl.js"></script>
-    <script src="../../../../js/info.js"></script>
-    <script src="../../../../js/time.js"></script>
-    <script src="../../../../js/hakufunktiot.js"></script>
-    <script src="../../../../js/liikenointi.js"></script>
-	<script type="text/javascript" src="../../../../js/jquery.leanModal.min.js"></script>
-</head>
-
-<body onload="startTime()">
-<div id="parentdiv">
-    <center><div id="time"></div></center>
-	<div class="notices"><marquee behavior="scroll" direction="left"><p id="incl"></p></marquee></div>
-    <div class="map" id="map">
-        <!-- Google maps tulee tähän -->
-    </div>
-	
-    <div id="chili">
-        <div id="AikaTaulu">
-            <script>
-                liikennointi();
-                setInterval(function(){liikennointi()},9000);
-            </script>
-        </div>
-		<div id="HSLroutes" class="sidebyside">
-
-            <div id="teksti">
-			    <h4 id="otsikko_hsl" style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;Dipoli</h4>
-                <table id="table" class="table table-condensed" cellspacing="10">
-                <tr>
-                    <th>&nbsp;&nbsp;&nbsp;Time</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
-                    <th>&nbsp;&nbsp;&nbsp;Destination</th>
-                </tr>
-                </table>
-			    <div class="hsl123"><ul id="hsl_aikataulu" class="sidebyside"></ul></div>
-
-                <div class="hsl123"><ul id="hsl_bussit" class="sidebyside"></ul></div>
-
-                <div class="hsl123"><ul id="hsl_kohde" class="sidebyside"</ul></div>
-
-                <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;Otakallio</h4>
-
-                <table id="table2" class="table table-condensed" cellspacing="10">
-                    <tr>
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="../../../../css/css.css">
+      <script src="../../../../jquery-3.2.1.min.js"></script>
+	  <script src="getConfig.js"></script>
+      <script src="../../../../js/aikatauluhsl.js"></script>
+      <script src="../../../../js/time.js"></script>
+      <script src="../../../../js/hakufunktiot.js"></script>
+      <script src="../../../../js/liikennointi.js"></script>
+      <script type="text/javascript" src="../../../../js/jquery.leanModal.min.js"></script>
+   </head>
+   <body onload="startTime()">
+      <div id="parentdiv">
+         <center>
+            <div id="time"></div>
+         </center>
+         <div class="notices">
+            <marquee behavior="scroll" direction="left">
+               <p id="incl"></p>
+            </marquee>
+         </div>
+         <div class="map" id="map">
+            <!-- Google maps tulee tähän -->
+         </div>
+         <div id="chili">
+            <div id="AikaTaulu">
+               <script>
+                  liikennointi();
+                  setInterval(function(){liikennointi()},9000);
+               </script>
+            </div>
+            <div id="HSLroutes" class="sidebyside">
+               <div id="teksti">
+                  <h4 id="otsikko_hsl" style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;Dipoli</h4>
+                  <table id="table" class="table table-condensed" cellspacing="10">
+                     <tr>
                         <th>&nbsp;&nbsp;&nbsp;Time</th>
                         <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
                         <th>&nbsp;&nbsp;&nbsp;Destination</th>
-                    </tr>
-                </table>
-
-            <div class="hsl123"><ul id="hsl_aikataulu2" class="sidebyside"></ul></div>
-
-            <div class="hsl123"><ul id="hsl_bussit2" class="sidebyside"></ul></div>
-
-            <div class="hsl123"><ul id="hsl_kohde2" class="sidebyside"</ul></div>
+                     </tr>
+                  </table>
+                  <div class="hsl123">
+                     <ul id="hsl_aikataulu" class="sidebyside"></ul>
+                  </div>
+                  <div class="hsl123">
+                     <ul id="hsl_bussit" class="sidebyside"></ul>
+                  </div>
+                  <div class="hsl123"><ul id="hsl_kohde" class="sidebyside"</ul></div>
+                  <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;Otakallio</h4>
+                  <table id="table2" class="table table-condensed" cellspacing="10">
+                     <tr>
+                        <th>&nbsp;&nbsp;&nbsp;Time</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
+                        <th>&nbsp;&nbsp;&nbsp;Destination</th>
+                     </tr>
+                  </table>
+                  <div class="hsl123">
+                     <ul id="hsl_aikataulu2" class="sidebyside"></ul>
+                  </div>
+                  <div class="hsl123">
+                     <ul id="hsl_bussit2" class="sidebyside"></ul>
+                  </div>
+                  <div class="hsl123"><ul id="hsl_kohde2" class="sidebyside"</ul></div>
+               </div>
+               <img id="hsl_logo" src="../../../../img/hsl.svg">
+               <script>
+                  setInterval(function(){ HSL_Dipoli_haku() }, 60000);
+                  setInterval(function(){ HSL_Otakallio_haku() }, 60000);
+               </script>
             </div>
-            <img id="hsl_logo" src="../../../../img/hsl.svg">
-			<script>
-                setInterval(function(){ HSL_Dipoli_haku() }, 60000);
-                setInterval(function(){ HSL_Otakallio_haku() }, 60000);
-			</script>
-		</div>
-        <div id="mainos">
-            <center><img id="mainosLogo" width="275em" src="../../../../img/MetropoliaLogo.png"></center>
-             <!-- Mahdolliset mainokset -->
-        </div>
-
-    </div>
-
-</div>
-
-<div id="buttonZoom">
-    <button id="resize"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </button><br>
-    <a id="go" href="#infoText"><button id="info"><i class="fa fa-info-circle" aria-hidden="true"></i>
-    </button></a>
-</div>
-
-<div class="infoT" id="infoText">
-    <h1>Älybussipysäkki</h1>
-	<p>Sohjoa projekti</p>
-    <p id="infocontnet"></p>
-    <p id="infosv"></p>
-    <p id="infoeng" ></p>
-</div>
-
-<script>
-	//GPS tracking server ip example: 'http://11.111.111.111:8082/api';
-	var root = 'http://localhost:8082/api';
-	
-	$("#go").leanModal(); //launches info modal on click 
-    
-	function muutakoko(){ //change map size to larger and hide other elements on page
-            var kartta = document.getElementById("map");
-            var chili = document.getElementById("chili")
-            var value = $(this).html();
-            if(value != '<i class="fa fa-minus-circle" aria-hidden="true"></i>'){
-                $(this).html('<i class="fa fa-minus-circle" aria-hidden="true"></i>');
-                $(kartta).toggleClass('fullscreen map');
-                $(chili).addClass('katoa');
-                initMap();
-                return false;
-            }else{
-                $(this).html('<i class="fa fa-plus-circle" aria-hidden="true"></i>');
-                $(kartta).toggleClass('map fullscreen');
-                $(chili).removeClass('katoa');
-                initMap();
+            <div id="mainos">
+               <center><img id="mainosLogo" width="275em" src="../../../../img/MetropoliaLogo.png"></center>
+               <!-- Mahdolliset mainokset -->
+            </div>
+         </div>
+      </div>
+      <div id="buttonZoom">
+         <button id="resize"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </button><br>
+         <a id="go" href="#infoText"><button id="info"><i class="fa fa-info-circle" aria-hidden="true"></i>
+         </button></a>
+      </div>
+      <div id="infoText">
+         <h1>Sohjoa projekti</h1>
+         <p id="info_fi">test</p>
+         <p id="info_se"></p>
+         <p id="info_gb" ></p>
+      </div>
+      <script>
+         //GPS tracking server ip example: 'http://11.111.111.111:8082/api';
+         var root = 'http://localhost:8082/api';
+         
+         $("#go").leanModal(); //launches info modal on click 
+            
+         function muutakoko(){ //change map size to larger and hide other elements on page
+                    var kartta = document.getElementById("map");
+                    var chili = document.getElementById("chili")
+                    var value = $(this).html();
+                    if(value != '<i class="fa fa-minus-circle" aria-hidden="true"></i>'){
+                        $(this).html('<i class="fa fa-minus-circle" aria-hidden="true"></i>');
+                        $(kartta).toggleClass('fullscreen map');
+                        $(chili).addClass('katoa');
+						var pressed = 1;
+                        initMap(pressed);
+                        return false;
+                    }else{
+                        $(this).html('<i class="fa fa-plus-circle" aria-hidden="true"></i>');
+                        $(kartta).toggleClass('map fullscreen');
+                        $(chili).removeClass('katoa');
+                        initMap();
+                    }
             }
-    }
-	
-	$('#resize').click(muutakoko);
-	
-	//Keyboard variables
-	var pressed = 0;
-	var infoVisible = 0;
-	//Keyboard functions
-	document.addEventListener('keydown', function(event) {
-    if(event.keyCode == 37 && pressed == 0) {
-		$('#resize').each(muutakoko);	
-		pressed = 1;
-		setTimeout(clearPress, 2000);
-    } else if (event.keyCode == 39 && pressed == 0) {
-		pressed = 1;
-		if (infoVisible == 0){
-			$("#go").click();
-			infoVisible = 1;
-		} else {
-			$("#lean_overlay").trigger("click");
-			infoVisible = 0;
-		}
-		setTimeout(clearPress, 2000);
-	}
-	//Keyboard functions
-	function clearPress(){
-		pressed = 0;
-	}
-
-});
-
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
-<link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css">
-</body>
+         
+         $('#resize').click(muutakoko);
+         
+         //Keyboard variables
+         var pressed = 0;
+         var infoVisible = 0;
+         //Keyboard functions
+         document.addEventListener('keydown', function(event) {
+            if(event.keyCode == 37 && pressed == 0) {
+         	$('#resize').each(muutakoko);	
+         	pressed = 1;
+         	setTimeout(clearPress, 2000);
+            } else if (event.keyCode == 39 && pressed == 0) {
+         	pressed = 1;
+         	if (infoVisible == 0){
+         		$("#go").click();
+         		infoVisible = 1;
+         	} else {
+         		$("#lean_overlay").trigger("click");
+         		infoVisible = 0;
+         	}
+         	setTimeout(clearPress, 2000);
+         }
+         //Keyboard functions
+         function clearPress(){
+         	pressed = 0;
+         }
+         
+         });
+         
+      </script>
+	  <script src="../../../../js/info.js"></script>
+	  <script src="../../../../js/map.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
+      <link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css">
+   </body>
 </html>
