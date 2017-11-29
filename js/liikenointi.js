@@ -5,10 +5,11 @@ function liikennointi() {
     var time = d.toLocaleTimeString();
     console.log(time)
     if(aikaam<= time && time <= aikapm){
-        document.getElementById("AikaTaulu").innerHTML = "Älybyssi on liikenteessä"
-
+        document.getElementById("AikaTaulu").innerHTML = "<h4>Älybyssi on liikenteessä</h4>" + " " + "<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        document.getElementById("AikaTaulu").setAttribute("style", 'background-color:#4806B1');
     }else{
-        document.getElementById("AikaTaulu").innerHTML = "Älybyssi ei ole liikenteessä"
+        document.getElementById("AikaTaulu").innerHTML = "<h4>Älybyssi on liikenteessä</h4>" + "" + "<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        document.getElementById("AikaTaulu").setAttribute("style", 'background-color:#48066E');
     }
 
 }
