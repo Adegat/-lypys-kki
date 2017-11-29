@@ -5,7 +5,7 @@ function myInfo() {
 }
 
 $.ajax({
-    url: '../../../../data/config.json',
+    url: '../../../../data/mainConfig.json',
     header: ('Content-Type: application/json; charset=utf-8'),
     method: 'GET'
 }).then(function(data) {

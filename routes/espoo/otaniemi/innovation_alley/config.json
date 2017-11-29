@@ -1,4 +1,7 @@
 {
 	"_comment": "Bus stop configuration",
 	"coordinates": 1,
+	"_comment": "Neutraalit tiedotteet merkitään harmahtavalla sävyllä (level 1), Ruuhkatiedotteet keltaisella (level 2), vaara- ja hätäteidotteet punaisella pohjalla ja valkoisella fontilla. (level 3)",
+	"level": 1,
+	"alert": "Betonimiehenkuja 5 - Metallimiehenkuja 2, Otaniemi, Espoo"
 }
