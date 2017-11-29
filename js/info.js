@@ -10,7 +10,7 @@ $.ajax({
     method: 'GET'
 }).then(function(data) {
     linebreak= document.createElement("br")
-    console.log(data,'moi');
+    //console.log(data,'moi');
     //console.log("danger");
     document.querySelectorAll(".infoT")[0].setAttribute("style", 'background-color:purple;color:white;');
     document.querySelectorAll("#infocontnet")[0].innerHTML = data.message1;

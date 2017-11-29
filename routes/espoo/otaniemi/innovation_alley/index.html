@@ -9,6 +9,7 @@
     <script src="../../../../js/info.js"></script>
     <script src="../../../../js/time.js"></script>
     <script src="../../../../js/hakufunktiot.js"></script>
+    <script src="../../../../js/liikenointi.js"></script>
 	<script type="text/javascript" src="../../../../js/jquery.leanModal.min.js"></script>
 </head>
 
@@ -22,8 +23,11 @@
 	
     <div id="chili">
         <div id="AikaTaulu">
-		<center><h4 style="margin-bottom:0;">Älybussi liikennöi</h4><i class="fa fa-bus" aria-hidden="true"></i></center>
-            <center><h3>9:00 - 13:30</h3></center>
+            <script>
+                liikennointi();
+                setInterval(function(){liikennointi()},9000);
+            </script>
+            <i class="fa fa-bus" aria-hidden="true"></i>
         </div>
 		<div id="HSLroutes" class="sidebyside">
 
