@@ -45,10 +45,10 @@ html, body{
     float: right;
     width: 30%;
     height: 30%;
-    background-color: #163354;
     font-size: 2rem;
 	color: white;
     right: 0;
+    text-align: center;
  }
  
 #HSLroutes{
