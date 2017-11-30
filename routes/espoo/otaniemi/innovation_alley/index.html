@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
+
 <head>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../../../css/css.css">
@@ -14,52 +14,6 @@
 	<script type="text/javascript" src="../../../../js/jquery.leanModal.min.js"></script>
 </head>
 
-<body onload="startTime()">
-<div id="parentdiv">
-    <center><div id="time"></div></center>
-	<div class="notices"><marquee behavior="scroll" direction="left"><p id="incl"></p></marquee></div>
-    <div class="map" id="map">
-        <!-- Google maps tulee tähän -->
-    </div>
-	
-    <div id="chili">
-        <div id="AikaTaulu">
-            <script>
-                liikennointi();
-                setInterval(function(){liikennointi()},9000);
-            </script>
-            <i class="fa fa-bus" aria-hidden="true"></i>
-        </div>
-		<div id="HSLroutes" class="sidebyside">
-
-            <div id="teksti">
-			    <h4 id="otsikko_hsl" style="margin-bottom:0;"><p>&nbsp;&nbsp;&nbsp;Dipoli</p></h4>
-
-			    <div class="hsl123"><ul id="hsl_aikataulu" class="sidebyside"></ul></div>
-
-                <div class="hsl123"><ul id="hsl_bussit" class="sidebyside"></ul></div>
-
-                <div class="hsl123"><ul id="hsl_kohde" class="sidebyside"</ul></div>
-
-                <h4 style="margin-bottom:0; margin-top:0"><p>&nbsp;&nbsp;&nbsp;Otakallio</p></h4>
-
-            <div class="hsl123"><ul id="hsl_aikataulu2" class="sidebyside"></ul></div>
-
-            <div class="hsl123"><ul id="hsl_bussit2" class="sidebyside"></ul></div>
-
-            <div class="hsl123"><ul id="hsl_kohde2" class="sidebyside"</ul></div>
-=======
-   <head>
-      <meta charset="utf-8">
-      <link rel="stylesheet" type="text/css" href="../../../../css/css.css">
-      <script src="../../../../jquery-3.2.1.min.js"></script>
-	  <script src="getConfig.js"></script>
-      <script src="../../../../js/aikatauluhsl.js"></script>
-      <script src="../../../../js/time.js"></script>
-      <script src="../../../../js/hakufunktiot.js"></script>
-      <script src="../../../../js/liikennointi.js"></script>
-      <script type="text/javascript" src="../../../../js/jquery.leanModal.min.js"></script>
-   </head>
    <body onload="startTime()">
       <div id="parentdiv">
          <center>
@@ -83,13 +37,6 @@
             <div id="HSLroutes" class="sidebyside">
                <div id="teksti">
                   <h4 id="otsikko_hsl" style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;Dipoli</h4>
-                  <table id="table" class="table table-condensed" cellspacing="10">
-                     <tr>
-                        <th>&nbsp;&nbsp;&nbsp;Time</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
-                        <th>&nbsp;&nbsp;&nbsp;Destination</th>
-                     </tr>
-                  </table>
                   <div class="hsl123">
                      <ul id="hsl_aikataulu" class="sidebyside"></ul>
                   </div>
@@ -98,13 +45,7 @@
                   </div>
                   <div class="hsl123"><ul id="hsl_kohde" class="sidebyside"</ul></div>
                   <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;Otakallio</h4>
-                  <table id="table2" class="table table-condensed" cellspacing="10">
-                     <tr>
-                        <th>&nbsp;&nbsp;&nbsp;Time</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
-                        <th>&nbsp;&nbsp;&nbsp;Destination</th>
-                     </tr>
-                  </table>
+
                   <div class="hsl123">
                      <ul id="hsl_aikataulu2" class="sidebyside"></ul>
                   </div>
@@ -122,7 +63,7 @@
             <div id="mainos">
                <center><img id="mainosLogo" width="275em" src="../../../../img/MetropoliaLogo.png"></center>
                <!-- Mahdolliset mainokset -->
->>>>>>> bbad329b2ce730d4eba585ed705979fa06852870
+
             </div>
          </div>
       </div>
@@ -161,7 +102,7 @@
                         initMap();
                     }
             }
-<<<<<<< HEAD
+
     }
 	
 	$('#resize').click(muutakoko);
@@ -202,9 +143,8 @@
 <script src="../../../../js/info2.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css">
-</body>
-=======
-         
+
+                <script>
          $('#resize').click(muutakoko);
          
          //Keyboard variables
@@ -240,5 +180,5 @@
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
       <link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css">
    </body>
->>>>>>> bbad329b2ce730d4eba585ed705979fa06852870
+
 </html>
