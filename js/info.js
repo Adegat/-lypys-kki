@@ -5,7 +5,7 @@ $.ajax({
     header: ('Content-Type: application/json; charset=utf-8'),
     method: 'GET'
 }).then(function(data) {
-    linebreak= document.createElement("br")
+    linebreak= document.createElement("br");
     //console.log(data,'moi');
     //console.log("danger");
     $("#infoText").attr("style", 'background-color:purple;color:white;');

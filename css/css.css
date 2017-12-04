@@ -68,6 +68,7 @@ html, body{
     right: 10px;
     top: 115px;
     z-index: 11;
+    display: none;
 }
 #mainos{
     background-color: purple;
