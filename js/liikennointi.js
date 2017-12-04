@@ -10,7 +10,7 @@ function liikennointi() {
             header: ('Content-Type: application/json; charset=utf-8'),
             method: 'GET'
         }).then(function(data) {
-            console.log(data)
+            //console.log(data)
             linebreak= document.createElement("AikaTaulu");
             setInterval(function () {
 
@@ -34,7 +34,7 @@ function liikennointi() {
             header: ('Content-Type: application/json; charset=utf-8'),
             method: 'GET'
         }).then(function(data) {
-            console.log(data)
+            //console.log(data)
             linebreak= document.createElement("AikaTaulu");
             setInterval(function () {
 

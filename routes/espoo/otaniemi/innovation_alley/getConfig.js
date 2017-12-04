@@ -10,7 +10,7 @@ $.ajax({
 		busStopCoordLng = data.coordinates.lng;	
 		if (data.level == 1){
 			//console.log("neutral");
-			$(".notices").attr("style", "background-color:blue;");
+			$(".notices").attr("style", "background-color:#5530E0;");
 			$("#incl").append(data.alert);
 		} else if (data.level == 2) {
 			//console.log("traffic");

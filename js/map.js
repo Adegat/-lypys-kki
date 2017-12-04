@@ -6,14 +6,13 @@ console.log(busStopCoordLat);
 busStopCoordLat = Number(busStopCoordLat) - 0.000400;
 busStopCoordLng = Number(busStopCoordLng);
 
-
-
 function initMap(pressed) {
     var imageBus = {
         url: '../../../../img/bussi.png',
         scaledSize: new google.maps.Size(75, 75), // scaled size
     };
-    var imageStop = '../../../../img/pysakki2.png';
+    var imagehslStop = '../../../../img/hslmarker.png';
+	var imageStop = '../../../../img/buslogo.png';
     //var uluru = {lat: 60.180700, lng: 24.831451}
     var uluru = {
         lat: 60.181469,
@@ -44,8 +43,8 @@ function initMap(pressed) {
         map: map,
         title: 'HSL pysäkki',
         icon: {
-            labelOrigin: new google.maps.Point(51, 50),
-            url: imageStop,
+            labelOrigin: new google.maps.Point(12, 32),
+            url: imagehslStop,
             origin: new google.maps.Point(0, 0),
         },
         label: {
@@ -54,6 +53,26 @@ function initMap(pressed) {
             text: 'Dipoli',
         }
     })
+	
+	var marker2 = new google.maps.Marker({
+        position: {
+            lat: 60.181971,
+            lng: 24.833717
+        },
+        map: map,
+        title: 'HSL pysäkki',
+        icon: {
+            labelOrigin: new google.maps.Point(12, 32),
+            url: imagehslStop,
+            origin: new google.maps.Point(0, 0),
+        },
+        label: {
+            color: 'black',
+            fontWeight: 'bold',
+            text: 'Otakallio',
+        }
+    })
+	
 
     ////////////////////Bus GPS tracking/////////////////////////
     function markerLoop() {
@@ -118,7 +137,7 @@ function initMap(pressed) {
         map: map,
         title: 'Pysäkki 1',
         icon: {
-            labelOrigin: new google.maps.Point(51, 50),
+            labelOrigin: new google.maps.Point(75, 15),
             url: imageStop,
             origin: new google.maps.Point(0, 0),
         },
@@ -136,7 +155,7 @@ function initMap(pressed) {
         map: map,
         title: 'Pysäkki 2',
         icon: {
-            labelOrigin: new google.maps.Point(51, 50),
+            labelOrigin: new google.maps.Point(40, 15),
             url: imageStop,
             origin: new google.maps.Point(0, 0),
         },
@@ -154,7 +173,7 @@ function initMap(pressed) {
         map: map,
         title: 'Pysäkki 3',
         icon: {
-            labelOrigin: new google.maps.Point(51, 50),
+            labelOrigin: new google.maps.Point(50, 15),
             url: imageStop,
             origin: new google.maps.Point(0, 0),
         },
@@ -166,7 +185,8 @@ function initMap(pressed) {
     });
     directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true,
-		preserveViewport: true
+		preserveViewport: true,
+		polylineOptions: { strokeColor: "#4806B1" }
     });
     directionsDisplay.setMap(map);
     var infowindow = new google.maps.InfoWindow();

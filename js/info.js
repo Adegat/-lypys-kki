@@ -8,7 +8,7 @@ $.ajax({
     linebreak= document.createElement("br");
     //console.log(data,'moi');
     //console.log("danger");
-    $("#infoText").attr("style", 'background-color:purple;color:white;');
+    $("#infoText").attr("style", 'background-color:#5530E0;color:white;');
 	//console.log(data.message1);
     $("#info_fi").empty().append(data.message1);
 	$("#info_se").empty().append(data.message2);
