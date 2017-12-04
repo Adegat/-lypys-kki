@@ -3,7 +3,7 @@
 fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:5) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
+    body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
 })
     .then(res => res.json())
 .then(res => {
@@ -36,7 +36,7 @@ for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
 fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ query: '{ stop(id:"HSL:2222203") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:5) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
+    body: JSON.stringify({ query: '{ stop(id:"HSL:2222203") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
 })
     .then(res => res.json())
 .then(res => {

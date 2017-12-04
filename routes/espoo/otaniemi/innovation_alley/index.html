@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../../../../css/css.css">
       <script src="../../../../jquery-3.2.1.min.js"></script>
-	  <script src="getConfig.js"></script>
+      <script src="getConfig.js"></script>
       <script src="../../../../js/aikatauluhsl.js"></script>
       <script src="../../../../js/time.js"></script>
       <script src="../../../../js/hakufunktiot.js"></script>
@@ -34,13 +34,6 @@
             <div id="HSLroutes" class="sidebyside">
                <div id="teksti">
                   <h4 id="otsikko_hsl" style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;Dipoli</h4>
-                  <table id="table" class="table table-condensed" cellspacing="10">
-                     <tr>
-                        <th>&nbsp;&nbsp;&nbsp;Time</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
-                        <th>&nbsp;&nbsp;&nbsp;Destination</th>
-                     </tr>
-                  </table>
                   <div class="hsl123">
                      <ul id="hsl_aikataulu" class="sidebyside"></ul>
                   </div>
@@ -49,13 +42,6 @@
                   </div>
                   <div class="hsl123"><ul id="hsl_kohde" class="sidebyside"</ul></div>
                   <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;Otakallio</h4>
-                  <table id="table2" class="table table-condensed" cellspacing="10">
-                     <tr>
-                        <th>&nbsp;&nbsp;&nbsp;Time</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bus</th>
-                        <th>&nbsp;&nbsp;&nbsp;Destination</th>
-                     </tr>
-                  </table>
                   <div class="hsl123">
                      <ul id="hsl_aikataulu2" class="sidebyside"></ul>
                   </div>
@@ -110,7 +96,9 @@
                         $(chili).removeClass('katoa');
                         initMap();
                     }
-            }
+         }
+         
+         
          
          $('#resize').click(muutakoko);
          
@@ -142,8 +130,8 @@
          });
          
       </script>
-	  <script src="../../../../js/info.js"></script>
-	  <script src="../../../../js/map.js"></script>
+      <script src="../../../../js/info.js"></script>
+      <script src="../../../../js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
       <link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css">
    </body>
