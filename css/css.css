@@ -120,8 +120,9 @@ box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
     display:inline-block;
     list-style-type: none;
     font-size: 1.4rem;
-    margin-right: -1em;
-    margin-left: -1em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 30%;
 }
 
 .sidebyside{
@@ -132,15 +133,15 @@ box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
     display: inline-block;
     width: 100%;
 }
+.keskitys{
+}
 #hsl_logo{
     margin-bottom: -3em;
     width: 2em;
-    margin-left: 5em;
-}
-p{
-    margin-top: -30px;
-    margin-bottom: 7px;
 }
 #aika_taulu{
+    float: right;
+}
+#aika_taulu2{
     float: right;
 }

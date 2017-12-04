@@ -32,26 +32,31 @@
                   liikennointi();
                   setInterval(function(){liikennointi()},900000);
                </script>
+               <p id="kulku"></p>
             </div>
             <div id="HSLroutes" class="sidebyside">
-                <img id="hsl_logo" src="../../../../img/hsl.svg">
+                <center><img id="hsl_logo" src="../../../../img/hsl.svg"></center>
                <div id="teksti">
-                  <h4 id="otsikko_hsl" style="margin-bottom:0;">&nbsp;&nbsp;&nbsp;<p>Dipoli</p></h4>
-                  <div class="hsl123">
-                     <ul id="hsl_bussit" class="sidebyside"></ul>
+                  <div class="keskitys">
+                     <center><h4 id="otsikko_hsl" style="margin-bottom:0;margin-top: 3em;">&nbsp;&nbsp;&nbsp;<p>Dipoli</p></h4></center>
+                        <div class="hsl123">
+                           <ul id="hsl_bussit" class="sidebyside"></ul>
+                        </div>
+                        <div class="hsl123">
+                           <ul id="hsl_kohde" class="sidebyside"></ul>
+                        </div>
+                        <div id="aika_taulu" class="hsl123"><ul id="hsl_aikataulu" class="sidebyside"</ul></div>
+                     </div>
+                     <div class="keskitys">
+                        <center><h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;<p>Otakallio</p></h4></center>
+                        <div class="hsl123">
+                           <ul id="hsl_bussit2"  class="sidebyside"></ul>
+                        </div>
+                        <div class="hsl123">
+                           <ul id="hsl_kohde2"  class="sidebyside"></ul>
+                        </div>
+                        <div id="aika_taulu2" class="hsl123"><ul id="hsl_aikataulu2" class="sidebyside"</ul></div>
                   </div>
-                  <div class="hsl123">
-                     <ul id="hsl_kohde" class="sidebyside"></ul>
-                  </div>
-                  <div id="aika_taulu" class="hsl123"><ul id="hsl_aikataulu" class="sidebyside"</ul></div>
-                  <h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;<p>Otakallio</p></h4>
-                  <div class="hsl123">
-                     <ul id="hsl_bussit2"  class="sidebyside"></ul>
-                  </div>
-                  <div class="hsl123">
-                     <ul id="hsl_kohde2"  class="sidebyside"></ul>
-                  </div>
-                  <div class="hsl123"><ul id="hsl_aikataulu2" class="sidebyside"</ul></div>
                </div>
 
                <script>

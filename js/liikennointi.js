@@ -3,13 +3,60 @@ function liikennointi() {
     var aikapm = "13.30";
     var d = new Date();
     var time = d.toLocaleTimeString();
-    //console.log(time)
+    var kieli = "fi";
     if(aikaam <= time && time <= aikapm){
-        document.getElementById("AikaTaulu").innerHTML = "<h4>Älybussi on liikenteessä/ Den smarta bussen är i trafik/ The smart bus is in traffic</h4>" + " " + "<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        $.ajax({
+            url: '../../../../data/mainConfig.json',
+            header: ('Content-Type: application/json; charset=utf-8'),
+            method: 'GET'
+        }).then(function(data) {
+            console.log(data)
+            linebreak= document.createElement("AikaTaulu");
+            setInterval(function () {
+
+                if(kieli=="fi"){
+                    muutakulku(data.message4);
+                    kieli="sv";
+                }else if(kieli =="sv"){
+                    muutakulku(data.message5);
+                    kieli="gb";
+                }else{
+                    muutakulku(data.message6);
+                    kieli="fi";
+                }
+            },6000);
+        });
+        document.getElementById("AikaTaulu").innerHTML ="<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
         document.getElementById("AikaTaulu").setAttribute("style", 'background-color:#4806B1');
     }else{
-        document.getElementById("AikaTaulu").innerHTML = "<h4>Älybussi ei liikennöi/ Den smarta bussen är intte i trafik/ The smart bus is not in traffic</h4>" + "" + "<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
-        document.getElementById("AikaTaulu").setAttribute("style", 'background-color:orange');
+        $.ajax({
+            url: '../../../../data/mainConfig.json',
+            header: ('Content-Type: application/json; charset=utf-8'),
+            method: 'GET'
+        }).then(function(data) {
+            console.log(data)
+            linebreak= document.createElement("AikaTaulu");
+            setInterval(function () {
+
+                if(kieli=="fi"){
+                    muutakulku(data.message7);
+                    kieli="sv";
+                }else if(kieli =="sv"){
+                    muutakulku(data.message8);
+                    kieli="gb";
+                }else{
+                    muutakulku(data.message9);
+                    kieli="fi";
+                }
+            },6000);
+
+            muutakulku(data.message7);
+        });
+        document.getElementById("AikaTaulu").innerHTML ="<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        document.getElementById("AikaTaulu").setAttribute("style", 'background-color:#4806B1');
     }
 
+}
+function muutakulku(viesti) {
+    $("#kulku").empty().append(viesti);
 }
