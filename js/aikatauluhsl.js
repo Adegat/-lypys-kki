@@ -1,5 +1,5 @@
 
-
+/*
 fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -63,3 +63,4 @@ for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
 
 }
 });
+*/
