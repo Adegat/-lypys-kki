@@ -30,15 +30,16 @@ function HSL_Dipoli_haku() {
         // jos document.getElementById, niin koodi on javascriptiä
         // jos taas $('#hsl_bussit'). niin koodi on Jqueryä
 
-        $('#hsl_bussit').append('<li>' + buss + '</li>');
-        $('#hsl_kohde').append('<li>' + destination + '</li>');
-        $('#hsl_aikataulu').append('<li>' + slice + '</li>');
+        $('#hsl_bussit').append('<p class="parasiotus">' + buss + '</p>'+'<p class="parasiotus">'+ destination+ '</p>' + '<p class="parasiotus">' + slice +'</p>');
+        $('#hsl_bussit2').append('<p class="parasiotus">' + buss + '</p>'+'<p class="parasiotus">'+ destination+ '</p>' + '<p class="parasiotus">' + slice +'</p>');
+       // $('#hsl_kohde').append('<li>' + destination + '</li>');
+       // $('#hsl_aikataulu').append('<li>' + slice + '</li>');
 
     }
 });
 
 }
-
+/*
 function HSL_Otakallio_haku() {
      $("#hsl_kohde2").empty();
      $("#hsl_aikataulu2").empty();
@@ -77,8 +78,8 @@ function HSL_Otakallio_haku() {
 });
 
 
-}
-
+}*/
+/*
 function HSL_KemistiP_haku() {
     $("#hsl_kohde4").empty();
     $("#hsl_aikataulu4").empty();
@@ -304,5 +305,4 @@ function HSL_Alvar_Aallon_puistoE_haku() {
 
     }
 });
-
-}
+}*/
