@@ -6,6 +6,10 @@ console.log(busStopCoordLat);
 busStopCoordLat = Number(busStopCoordLat) - 0.000400;
 busStopCoordLng = Number(busStopCoordLng);
 
+//GPS tracking server ip example: 'http://11.111.111.111:8082/api';
+var root = server;
+console.log("root"+root);
+
 function initMap(pressed) {
     var imageBus = {
         url: '../../../../img/bussi.png',
