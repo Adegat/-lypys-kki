@@ -8,10 +8,11 @@ function HSL_Dipoli_haku() {
     fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
+		mode: 'cors',
         body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
     })
         .then(res => res.json())
-.then(res => {
+		.then(res => {
         console.log(res);
 
     for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
@@ -46,6 +47,7 @@ function HSL_Otakallio_haku() {
     fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
+		mode: 'cors',
         body: JSON.stringify({ query: '{ stop(id:"HSL:2222203") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
     })
         .then(res => res.json())

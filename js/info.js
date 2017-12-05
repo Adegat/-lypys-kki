@@ -5,6 +5,9 @@ $.ajax({
     header: ('Content-Type: application/json; charset=utf-8'),
     method: 'GET'
 }).then(function(data) {
+	console.log("info.js");
+	server = data.server;
+	console.log(server);
     linebreak= document.createElement("br");
     //console.log(data,'moi');
     //console.log("danger");
