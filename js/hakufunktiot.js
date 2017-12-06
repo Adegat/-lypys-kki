@@ -1,44 +1,70 @@
-
-function HSL_Dipoli_haku() {
-
+	var data = [];
+	var buss = [];
+	var destination = [];
+	var slice = [];
+	var data2 = [];
+	var buss2 = [];
+	var destination2 = [];
+	var slice2 = [];
     $("#hsl_kohde").empty();
     $("#hsl_aikataulu").empty();
     $("#hsl_bussit").empty();
-
+	
+	console.log("hsl " + hslStopID2);
     fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
 		mode: 'cors',
-        body: JSON.stringify({ query: '{ stop(id:"HSL:2222204") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}} '}),
-    })
+        body: JSON.stringify({ query: '{first:stop(id:"'+hslStopID1+'") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}second:stop(id:"'+hslStopID2+'") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}}'}),
+		})
         .then(res => res.json())
 		.then(res => {
-        console.log(res);
-
-    for(i=0; i<res.data.stop.stoptimesWithoutPatterns.length; i++) {
-        // console.log(res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture);
-        var name = res.data.stop.name;
-        var data = res.data.stop.stoptimesWithoutPatterns[i].scheduledDeparture;
-        var buss = res.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName;
-        destination = res.data.stop.stoptimesWithoutPatterns[i].trip.tripHeadsign;
-
-        var date = new Date(null);
-        date.setSeconds(data); // specify value for SECONDS here
-        var result = date.toISOString().substr(11, 8);
-        var slice = result.slice(0, -3);
-
-        // jos document.getElementById, niin koodi on javascriptiä
-        // jos taas $('#hsl_bussit'). niin koodi on Jqueryä
-
-        $('#hsl_bussit').append('<p class="parasiotus">' + buss + '</p>'+'<p class="parasiotus">'+ destination+ '</p>' + '<p class="parasiotus">' + slice +'</p>');
-        $('#hsl_bussit2').append('<p class="parasiotus">' + buss + '</p>'+'<p class="parasiotus">'+ destination+ '</p>' + '<p class="parasiotus">' + slice +'</p>');
-       // $('#hsl_kohde').append('<li>' + destination + '</li>');
-       // $('#hsl_aikataulu').append('<li>' + slice + '</li>');
-
-    }
+		console.log(res.data);
+		////////////////HSL STOP 1/////////////////////
+        var name = res.data.first.name;
+		for(i=0; i<res.data.first.stoptimesWithoutPatterns.length; i++) {
+			data.push(res.data.first.stoptimesWithoutPatterns[i].scheduledDeparture);
+			buss.push(res.data.first.stoptimesWithoutPatterns[i].trip.route.shortName);
+			destination.push(res.data.first.stoptimesWithoutPatterns[i].trip.tripHeadsign);
+			
+			var date = new Date(null);
+			date.setSeconds(data[i]); // specify value for SECONDS here
+			var result = date.toISOString().substr(11, 8);
+			slice.push(result.slice(0, -3));
+			//console.log(data);
+		}
+		$('#HSLStopname1').empty();
+		$('#hsl_bussit').empty();
+		$('#HSLStopname1').append(name);
+		$('#hsl_bussit').append('<p class="parasiotus">' + buss[0] + '</p>'+'<p class="parasiotus">'+ destination[0]+ '</p>' + '<p class="parasiotus">' + slice[0] +'</p>');
+		$('#hsl_bussit').append('<p class="parasiotus">' + buss[1] + '</p>'+'<p class="parasiotus">'+ destination[1]+ '</p>' + '<p class="parasiotus">' + slice[1] +'</p>');
+		$('#hsl_bussit').append('<p class="parasiotus">' + buss[2] + '</p>'+'<p class="parasiotus">'+ destination[2]+ '</p>' + '<p class="parasiotus">' + slice[2] +'</p>');
+		////////////////HSL STOP 1/////////////////////
+		
+		
+		////////////////HSL STOP 2/////////////////////
+        var name2 = res.data.second.name;
+		for(i=0; i<res.data.second.stoptimesWithoutPatterns.length; i++) {
+			data2.push(res.data.second.stoptimesWithoutPatterns[i].scheduledDeparture);
+			buss2.push(res.data.second.stoptimesWithoutPatterns[i].trip.route.shortName);
+			destination2.push(res.data.second.stoptimesWithoutPatterns[i].trip.tripHeadsign);
+			
+			var date = new Date(null);
+			date.setSeconds(data2[i]); // specify value for SECONDS here
+			var result = date.toISOString().substr(11, 8);
+			slice2.push(result.slice(0, -3));
+			//console.log(data2);
+		}
+		$('#HSLStopname2').empty();
+		$('#hsl_bussit2').empty();
+		$('#HSLStopname2').append(name2);
+		$('#hsl_bussit2').append('<p class="parasiotus">' + buss2[0] + '</p>'+'<p class="parasiotus">'+ destination2[0]+ '</p>' + '<p class="parasiotus">' + slice2[0] +'</p>');
+		$('#hsl_bussit2').append('<p class="parasiotus">' + buss2[1] + '</p>'+'<p class="parasiotus">'+ destination2[1]+ '</p>' + '<p class="parasiotus">' + slice2[1] +'</p>');
+		$('#hsl_bussit2').append('<p class="parasiotus">' + buss2[2] + '</p>'+'<p class="parasiotus">'+ destination2[2]+ '</p>' + '<p class="parasiotus">' + slice2[2] +'</p>');
+		////////////////HSL STOP 1/////////////////////
 });
 
-}
+
 /*
 function HSL_Otakallio_haku() {
      $("#hsl_kohde2").empty();

@@ -58,5 +58,5 @@ function liikennointi() {
 
 }
 function muutakulku(viesti) {
-    $("#kulku").empty().append(viesti);
+    $("#kulku").empty().append(viesti);	
 }

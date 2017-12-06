@@ -2,13 +2,8 @@
 Luo google maps elementin ja hakee kartan keskityksen config tietojen perusteella
 */
 console.log("map.js");
-console.log(busStopCoordLat);
-busStopCoordLat = Number(busStopCoordLat) - 0.000400;
-busStopCoordLng = Number(busStopCoordLng);
 
 //GPS tracking server ip example: 'http://11.111.111.111:8082/api';
-var root = server;
-console.log("root"+root);
 
 function initMap(pressed) {
     var imageBus = {
@@ -38,11 +33,23 @@ function initMap(pressed) {
 		map.panTo(laLatLng);
 		map.setZoom(17);
 	}
-
+	
+	console.log(busStopCoordLat);
+	busStopCoordLat = Number(busStopCoordLat);
+	busStopCoordLng = Number(busStopCoordLng);
+	console.log(hslStopCoord1.lat);
+	console.log(hslStopCoord2);
+	hslStopCoord1.lat = Number(hslStopCoord1.lat);
+	hslStopCoord1.lng = Number(hslStopCoord1.lng);
+	hslStopCoord2.lat = Number(hslStopCoord2.lat);
+	hslStopCoord2.lng = Number(hslStopCoord2.lng);
+	
+	
+	
     var marker = new google.maps.Marker({
         position: {
-            lat: 60.182748,
-            lng: 24.832112
+            lat: hslStopCoord1.lat,
+            lng: hslStopCoord1.lng
         },
         map: map,
         title: 'HSL pysäkki',
@@ -54,14 +61,14 @@ function initMap(pressed) {
         label: {
             color: 'black',
             fontWeight: 'bold',
-            text: 'Dipoli',
+            text: hslStopName1,
         }
     })
 	
 	var marker2 = new google.maps.Marker({
         position: {
-            lat: 60.181971,
-            lng: 24.833717
+            lat: hslStopCoord2.lat,
+            lng: hslStopCoord2.lng
         },
         map: map,
         title: 'HSL pysäkki',
@@ -73,11 +80,13 @@ function initMap(pressed) {
         label: {
             color: 'black',
             fontWeight: 'bold',
-            text: 'Otakallio',
+            text: hslStopName2,
         }
     })
 	
-
+	
+	var root = server;
+	console.log(root);
     ////////////////////Bus GPS tracking/////////////////////////
     function markerLoop() {
         var busPos;

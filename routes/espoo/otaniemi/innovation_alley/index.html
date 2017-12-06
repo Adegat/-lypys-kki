@@ -5,9 +5,9 @@
       <link rel="stylesheet" type="text/css" href="../../../../css/css.css">
       <script src="../../../../jquery-3.2.1.min.js"></script>
       <script src="getConfig.js"></script>
+	  <script src="../../../../js/getMainConfig.js"></script>
       <script src="../../../../js/aikatauluhsl.js"></script>
       <script src="../../../../js/time.js"></script>
-      <script src="../../../../js/hakufunktiot.js"></script>
       <script src="../../../../js/liikennointi.js"></script>
       <script type="text/javascript" src="../../../../js/jquery.leanModal.min.js"></script>
    </head>
@@ -38,7 +38,7 @@
                 <center><img id="hsl_logo" src="../../../../img/hsl.png"></center>
                <div id="teksti">
                   <div class="keskitys">
-                     <center><h4 id="otsikko_hsl" style="margin-bottom:0;margin-top: 3em;">&nbsp;&nbsp;&nbsp;<p>Dipoli</p></h4></center>
+                     <center><h4 id="otsikko_hsl" style="margin-bottom:0;margin-top: 3em;">&nbsp;&nbsp;&nbsp;<p id="HSLStopname1">Dipoli</p></h4></center>
                         <div class="hsl123" id="hsl_bussit" >
                           <!-- <ul class="sidebyside"></ul>-->
                         </div>
@@ -48,7 +48,7 @@
                         <div id="aika_taulu" class="hsl123"><ul id="hsl_aikataulu" class="sidebyside"</ul></div>-->
                      </div>
                      <div class="keskitys">
-                        <center><h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;<p>Otakallio</p></h4></center>
+                        <center><h4 style="margin-bottom:0; margin-top:0">&nbsp;&nbsp;&nbsp;<p id="HSLStopname2">Otakallio</p></h4></center>
                         <div class="hsl123" id="hsl_bussit2">
                            <!--<ul   class="sidebyside"></ul>-->
                         </div>
@@ -58,13 +58,6 @@
                         <div id="aika_taulu2" class="hsl123"><ul id="hsl_aikataulu2" class="sidebyside"</ul></div>
                  --> </div>
                </div>
-
-               <script>
-				  HSL_Dipoli_haku();
-                  setInterval(function(){ HSL_Dipoli_haku() }, 60000);
-                  setInterval(function(){ HSL_Otakallio_haku() }, 60000);
-				  HSL_Otakallio_haku();
-               </script>
             </div>
             <div id="mainos">
                <center><img id="mainosLogo" width="275em" src="../../../../img/sohjoa.png"></center>
@@ -196,5 +189,6 @@
       <script src="../../../../js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdnp378Eb1qxZRQrYJcT7jIoyJlLxZvE&callback=initMap"></script>
       <link rel="stylesheet" type="text/css" href="../../../../css/font-awesome.min.css">
+	  <script src="../../../../js/hakufunktiot.js"></script>
    </body>
 </html>
