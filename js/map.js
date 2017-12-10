@@ -1,25 +1,27 @@
 /*
 Luo google maps elementin ja hakee kartan keskityksen config tietojen perusteella
 */
-console.log("map.js");
-
+//console.log("map.js");
 //GPS tracking server ip example: 'http://11.111.111.111:8082/api';
-
 function initMap(pressed) {
     var imageBus = {
         url: '../../../../img/bussi.png',
-        scaledSize: new google.maps.Size(75, 75), // scaled size
+        scaledSize: new google.maps.Size(50, 50), // scaled size
     };
     var imagehslStop = '../../../../img/hslmarker.png';
-	var imageStop = '../../../../img/buslogo.png';
+    var imageStop = '../../../../img/buslogo.png';
+    var imageOwnPosition = '../../../../img/redbutton.png';
     //var uluru = {lat: 60.180700, lng: 24.831451}
     var uluru = {
         lat: 60.181469,
         lng: 24.830747
-    }
+    };
+	
+	var centeredOn = {lat:Number(mapCentered.lat),lng: Number(mapCentered.lng)};
+
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: uluru,
+        center: centeredOn,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: false,
         mapTypeControl: false,
@@ -28,24 +30,19 @@ function initMap(pressed) {
         rotateControl: false,
         fullscreenControl: false
     });
-	if (pressed == 1) {
-		var laLatLng = new google.maps.LatLng( busStopCoordLat,  busStopCoordLng);
-		map.panTo(laLatLng);
-		map.setZoom(17);
-	}
-	
-	console.log(busStopCoordLat);
-	busStopCoordLat = Number(busStopCoordLat);
-	busStopCoordLng = Number(busStopCoordLng);
-	console.log(hslStopCoord1.lat);
-	console.log(hslStopCoord2);
-	hslStopCoord1.lat = Number(hslStopCoord1.lat);
-	hslStopCoord1.lng = Number(hslStopCoord1.lng);
-	hslStopCoord2.lat = Number(hslStopCoord2.lat);
-	hslStopCoord2.lng = Number(hslStopCoord2.lng);
-	
-	
-	
+
+    //console.log(busStopCoordLat);
+    busStopCoordLat = Number(busStopCoordLat);
+    busStopCoordLng = Number(busStopCoordLng);
+    //console.log(hslStopCoord1.lat);
+    //console.log(hslStopCoord2);
+    hslStopCoord1.lat = Number(hslStopCoord1.lat);
+    hslStopCoord1.lng = Number(hslStopCoord1.lng);
+    hslStopCoord2.lat = Number(hslStopCoord2.lat);
+    hslStopCoord2.lng = Number(hslStopCoord2.lng);
+
+
+
     var marker = new google.maps.Marker({
         position: {
             lat: hslStopCoord1.lat,
@@ -64,8 +61,8 @@ function initMap(pressed) {
             text: hslStopName1,
         }
     })
-	
-	var marker2 = new google.maps.Marker({
+
+    var marker2 = new google.maps.Marker({
         position: {
             lat: hslStopCoord2.lat,
             lng: hslStopCoord2.lng
@@ -83,10 +80,10 @@ function initMap(pressed) {
             text: hslStopName2,
         }
     })
-	
-	
-	var root = server;
-	console.log(root);
+
+
+    var root = server;
+    //console.log(root);
     ////////////////////Bus GPS tracking/////////////////////////
     function markerLoop() {
         var busPos;
@@ -127,11 +124,12 @@ function initMap(pressed) {
             createLocMarker(map);
         });
     }
-    //setInterval(function(){ markerLoop(); }, 5000);
+    setInterval(function(){ markerLoop(); }, 5000);
     ////////////////////Bus GPS tracking/////////////////////////
 
     /* Reitin piirto*/
     var geocoder;
+    var gmarkers = [];
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
     var centered = new google.maps.LatLng(37.7699298, -122.4469157);
@@ -141,65 +139,57 @@ function initMap(pressed) {
         ['Bondi Beach', 60.181969, 24.830747, 3],
         ['Coogee Beach', 60.183031, 24.829004, 4],
     ];
+    var locations2names = [];
+    var locations2coords = [];
 
-    var marker = new google.maps.Marker({
-        position: {
-            lat: 60.180700,
-            lng: 24.831451
-        },
-        map: map,
-        title: 'Pysäkki 1',
-        icon: {
-            labelOrigin: new google.maps.Point(75, 15),
-            url: imageStop,
-            origin: new google.maps.Point(0, 0),
-        },
-        label: {
-            color: 'black',
-            fontWeight: 'bold',
-            text: 'Innovation alley',
+    var locations3 = [];
+
+    for (i = 0; i < stopCoords.length; i++) {
+        //console.log("bbb");
+        locations2names.push(stopNames[i]);
+        locations2coords.push(stopCoords[i]);
+        locations3.push([stopNames[i], stopCoords[i].lat, stopCoords[i].lng, i, stopVisible[i]]);
+    }
+
+
+
+    for (i = 0; i < locations3.length; i++) {
+        if (locations3[i][4] == 0) {
+			var empty = 1;
+			gmarkers.push(empty);
+        } else {
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: Number(locations3[i][1]),
+                    lng: Number(locations3[i][2])
+                },
+                map: map,
+                title: locations3[i][0],
+                icon: {
+                    labelOrigin: new google.maps.Point(12, 32),
+                    url: imageStop,
+                    origin: new google.maps.Point(0, 0),
+                },
+                label: {
+                    color: 'black',
+                    fontWeight: 'bold',
+                    text: locations3[i][0],
+                }
+            });
+            gmarkers.push(marker);
         }
-    });
-    var marker = new google.maps.Marker({
-        position: {
-            lat: 60.181969,
-            lng: 24.830747
-        },
-        map: map,
-        title: 'Pysäkki 2',
-        icon: {
-            labelOrigin: new google.maps.Point(40, 15),
-            url: imageStop,
-            origin: new google.maps.Point(0, 0),
-        },
-        label: {
-            color: 'black',
-            fontWeight: 'bold',
-            text: 'Acre',
-        }
-    });
-    var marker = new google.maps.Marker({
-        position: {
-            lat: 60.183031,
-            lng: 24.829004
-        },
-        map: map,
-        title: 'Pysäkki 3',
-        icon: {
-            labelOrigin: new google.maps.Point(50, 15),
-            url: imageStop,
-            origin: new google.maps.Point(0, 0),
-        },
-        label: {
-            color: 'black',
-            fontWeight: 'bold',
-            text: 'Valimo',
-        }
-    });
+    }
+
+    //console.log(locations3);
+
+
     directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true,
-		preserveViewport: true,
-		polylineOptions: { strokeColor: "#4806B1" }
+        preserveViewport: true,
+        polylineOptions: {
+            strokeColor: "#4806B1",
+			strokeOpacity: 0.3
+        }
     });
     directionsDisplay.setMap(map);
     var infowindow = new google.maps.InfoWindow();
@@ -207,20 +197,20 @@ function initMap(pressed) {
     var request = {
         travelMode: google.maps.TravelMode.DRIVING
     };
-    for (i = 0; i < locations.length; i++) {
+    for (i = 0; i < locations3.length; i++) {
         marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            position: new google.maps.LatLng(Number(locations3[i][1]), Number(locations3[i][2])),
         });
 
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infowindow.setContent(locations[i][0]);
+                infowindow.setContent(locations3[i][0]);
                 infowindow.open(map, marker);
             }
         })(marker, i));
 
         if (i == 0) request.origin = marker.getPosition();
-        else if (i == locations.length - 1) request.destination = marker.getPosition();
+        else if (i == locations3.length - 1) request.destination = marker.getPosition();
         else {
             if (!request.waypoints) request.waypoints = [];
             request.waypoints.push({
@@ -235,5 +225,39 @@ function initMap(pressed) {
             directionsDisplay.setDirections(result);
         }
     });
-	
+
+    if (pressed == 1) {
+        var laLatLng = new google.maps.LatLng(busStopCoordLat, busStopCoordLng);
+        map.panTo(laLatLng);
+        map.setZoom(17);
+        var marker = new google.maps.Marker({
+            position: {
+                lat: busStopCoordLat,
+                lng: busStopCoordLng
+            },
+            map: map,
+            title: 'You are here',
+            icon: {
+                labelOrigin: new google.maps.Point(12, 32),
+                url: imageOwnPosition,
+                origin: new google.maps.Point(0, 0),
+            },
+            label: {
+                color: 'black',
+                fontWeight: 'bold',
+                text: "Olet tässä",
+            }
+        });
+
+        for (i = 0; i < locations3.length; i++) {
+            //console.log(locations3[i][0]);
+            if (locations3[i][0] == stopName) {
+				//console.log(locations3[i][0]);
+				//console.log(gmarkers);
+                //console.log("aa");
+                gmarkers[i].setMap(null);
+            }
+        }
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
 }

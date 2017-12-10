@@ -1,0 +1,31 @@
+{
+	"_comment": "Bus route configuration",
+	"mapCentered": {"lat": "60.219492", "lng": "24.806920"},
+	"object": {
+    "busStop1": {
+				"name": "Pysäkki 1",
+				"coord": {"lat": "60.222477", "lng": "24.801939"},
+				"visible": 1
+				},
+    "busStop2": {
+				"name": "Pysäkki 2",
+				"coord": {"lat": "60.222040", "lng": " 24.805329"},
+				"visible": 1
+				},
+    "busStop3": {
+				"name": "Pysäkki 3",
+				"coord": {"lat": "60.219892", "lng": "24.806920"},
+				"visible": 1
+				},
+    "busStop4": {
+				"name": "Pysäkki 4",
+				"coord": {"lat": "60.220564", "lng": "24.810967"},
+				"visible": 1
+				},
+    "busStop5": {
+				"name": "Pysäkki 5",
+				"coord": {"lat": "60.221177", "lng": "24.808901"},
+				"visible": 1
+				}
+	}
+}

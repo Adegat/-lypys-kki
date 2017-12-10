@@ -44,7 +44,7 @@ html, body{
 #AikaTaulu{
     float: right;
     width: 30%;
-    height: 30%;
+    height: 20%;
     font-size: 2rem;
 	color: white;
     right: 0;
@@ -58,7 +58,7 @@ html, body{
 #HSLroutes{
 	float: right;
     width: 30%;
-    height: 70%;
+    height: 80%;
     background-color: #163388;
 	font-size: 2rem;
 	color: white;
@@ -135,8 +135,6 @@ box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
     display: inline-block;
     width: 100%;
 }
-.keskitys{
-}
 #hsl_logo{
     margin-bottom: -3em;
     width: 2em;
@@ -147,7 +145,7 @@ box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
 #aika_taulu2{
     float: right;
 }
-.parasiotus{
+/*.parasiotus{
     float:left;
-    width:33%
-}
+    width:33%;
+}/*

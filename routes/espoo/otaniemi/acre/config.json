@@ -1,7 +1,7 @@
 {
 	"_comment": "Bus stop configuration",
-	"stopName": "Innovation Alley",
-	"stop_coordinates": {"lat": "60.180700", "lng": "24.831446"},
+	"stopName": "Acre",
+	"stop_coordinates": {"lat": "60.181969", "lng": "24.830747"},
 	"HSLStop1": "HSL:2222204",
 	"HSLStop1Name": "Dipoli",
 	"HSLStop1Coord": {"lat": "60.18274", "lng": "24.83212"},

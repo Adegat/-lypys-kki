@@ -6,7 +6,7 @@ $.ajax({
     method: 'GET',
 	success: function(data){
 		server = data.server;
-		console.log("getmainconfig");
-		console.log(server);
+		//console.log("getmainconfig");
+		//console.log(server);
 	}
 });

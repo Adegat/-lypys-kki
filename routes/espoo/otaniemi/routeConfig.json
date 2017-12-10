@@ -1,0 +1,26 @@
+{
+	"_comment": "Bus route configuration",
+	"mapCentered": {"lat": "60.181469", "lng": "24.830747"},
+	"object": {
+    "busStop1": {
+				"name": "Innovation Alley",
+				"coord": {"lat": "60.180700", "lng": "24.831446"},
+				"visible": 1
+				},
+	"busStop2": {
+				"name": "kierto",
+				"coord": {"lat": "60.180972", "lng": "24.830825"},
+				"visible": 0
+				},
+    "busStop3": {
+				"name": "Acre",
+				"coord": {"lat": "60.181969", "lng": "24.830747"},
+				"visible": 1
+				},
+    "busStop4": {
+				"name": "Valimo",
+				"coord": {"lat": "60.183031", "lng": "24.829004"},
+				"visible": 1
+				}
+	}
+}

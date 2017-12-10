@@ -1,69 +1,75 @@
-	var data = [];
-	var buss = [];
-	var destination = [];
-	var slice = [];
-	var data2 = [];
-	var buss2 = [];
-	var destination2 = [];
-	var slice2 = [];
+function hsl_haku() {
+    var data = [];
+    var buss = [];
+    var destination = [];
+    var slice = [];
+    var data2 = [];
+    var buss2 = [];
+    var destination2 = [];
+    var slice2 = [];
     $("#hsl_kohde").empty();
     $("#hsl_aikataulu").empty();
     $("#hsl_bussit").empty();
-	
-	console.log("hsl " + hslStopID2);
-    fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-		mode: 'cors',
-        body: JSON.stringify({ query: '{first:stop(id:"'+hslStopID1+'") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}second:stop(id:"'+hslStopID2+'") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}}'}),
-		})
-        .then(res => res.json())
-		.then(res => {
-		console.log(res.data);
-		////////////////HSL STOP 1/////////////////////
-        var name = res.data.first.name;
-		for(i=0; i<res.data.first.stoptimesWithoutPatterns.length; i++) {
-			data.push(res.data.first.stoptimesWithoutPatterns[i].scheduledDeparture);
-			buss.push(res.data.first.stoptimesWithoutPatterns[i].trip.route.shortName);
-			destination.push(res.data.first.stoptimesWithoutPatterns[i].trip.tripHeadsign);
-			
-			var date = new Date(null);
-			date.setSeconds(data[i]); // specify value for SECONDS here
-			var result = date.toISOString().substr(11, 8);
-			slice.push(result.slice(0, -3));
-			//console.log(data);
-		}
-		$('#HSLStopname1').empty();
-		$('#hsl_bussit').empty();
-		$('#HSLStopname1').append(name);
-		$('#hsl_bussit').append('<p class="parasiotus">' + buss[0] + '</p>'+'<p class="parasiotus">'+ destination[0]+ '</p>' + '<p class="parasiotus">' + slice[0] +'</p>');
-		$('#hsl_bussit').append('<p class="parasiotus">' + buss[1] + '</p>'+'<p class="parasiotus">'+ destination[1]+ '</p>' + '<p class="parasiotus">' + slice[1] +'</p>');
-		$('#hsl_bussit').append('<p class="parasiotus">' + buss[2] + '</p>'+'<p class="parasiotus">'+ destination[2]+ '</p>' + '<p class="parasiotus">' + slice[2] +'</p>');
-		////////////////HSL STOP 1/////////////////////
-		
-		
-		////////////////HSL STOP 2/////////////////////
-        var name2 = res.data.second.name;
-		for(i=0; i<res.data.second.stoptimesWithoutPatterns.length; i++) {
-			data2.push(res.data.second.stoptimesWithoutPatterns[i].scheduledDeparture);
-			buss2.push(res.data.second.stoptimesWithoutPatterns[i].trip.route.shortName);
-			destination2.push(res.data.second.stoptimesWithoutPatterns[i].trip.tripHeadsign);
-			
-			var date = new Date(null);
-			date.setSeconds(data2[i]); // specify value for SECONDS here
-			var result = date.toISOString().substr(11, 8);
-			slice2.push(result.slice(0, -3));
-			//console.log(data2);
-		}
-		$('#HSLStopname2').empty();
-		$('#hsl_bussit2').empty();
-		$('#HSLStopname2').append(name2);
-		$('#hsl_bussit2').append('<p class="parasiotus">' + buss2[0] + '</p>'+'<p class="parasiotus">'+ destination2[0]+ '</p>' + '<p class="parasiotus">' + slice2[0] +'</p>');
-		$('#hsl_bussit2').append('<p class="parasiotus">' + buss2[1] + '</p>'+'<p class="parasiotus">'+ destination2[1]+ '</p>' + '<p class="parasiotus">' + slice2[1] +'</p>');
-		$('#hsl_bussit2').append('<p class="parasiotus">' + buss2[2] + '</p>'+'<p class="parasiotus">'+ destination2[2]+ '</p>' + '<p class="parasiotus">' + slice2[2] +'</p>');
-		////////////////HSL STOP 1/////////////////////
-});
 
+    //console.log("hsl " + hslStopID2);
+    fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            body: JSON.stringify({
+                query: '{first:stop(id:"' + hslStopID1 + '") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}second:stop(id:"' + hslStopID2 + '") { name, lat, lon  stoptimesWithoutPatterns(numberOfDepartures:3) {scheduledDeparture, trip{tripHeadsign, route{shortName}   }}}}'
+            }),
+        })
+        .then(res => res.json())
+        .then(res => {
+            //console.log(res.data);
+            ////////////////HSL STOP 1/////////////////////
+            var name = res.data.first.name;
+            for (i = 0; i < res.data.first.stoptimesWithoutPatterns.length; i++) {
+                data.push(res.data.first.stoptimesWithoutPatterns[i].scheduledDeparture);
+                buss.push(res.data.first.stoptimesWithoutPatterns[i].trip.route.shortName);
+                destination.push(res.data.first.stoptimesWithoutPatterns[i].trip.tripHeadsign);
+
+                var date = new Date(null);
+                date.setSeconds(data[i]); // specify value for SECONDS here
+                var result = date.toISOString().substr(11, 8);
+                slice.push(result.slice(0, -3));
+                //console.log(data);
+            }
+            $('#HSLStopname1').empty();
+            $('#hsl_bussit').empty();
+            $('#HSLStopname1').append(name);
+            for (i = 0; i < buss.length; i++) {
+                $('#hsl_bussit').append('<div><p style="display:inline-block;margin-left:0.5em;margin-right:0.5em;width:2.3em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + buss[i] + '</p>' + '<p style="display:inline-block;width:7em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + destination[i] + '</p>' + '<p style="display:inline-block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + slice[i] + '</p></div>');
+            }
+            ////////////////HSL STOP 1/////////////////////
+
+
+            ////////////////HSL STOP 2/////////////////////
+            var name2 = res.data.second.name;
+            for (i = 0; i < res.data.second.stoptimesWithoutPatterns.length; i++) {
+                data2.push(res.data.second.stoptimesWithoutPatterns[i].scheduledDeparture);
+                buss2.push(res.data.second.stoptimesWithoutPatterns[i].trip.route.shortName);
+                destination2.push(res.data.second.stoptimesWithoutPatterns[i].trip.tripHeadsign);
+
+                var date = new Date(null);
+                date.setSeconds(data2[i]); // specify value for SECONDS here
+                var result = date.toISOString().substr(11, 8);
+                slice2.push(result.slice(0, -3));
+                //console.log(data2);
+            }
+            $('#HSLStopname2').empty();
+            $('#hsl_bussit2').empty();
+            $('#HSLStopname2').append(name2);
+            for (i = 0; i < buss2.length; i++) {
+                $('#hsl_bussit2').append('<div style=""><p style="display:inline-block;margin-left:0.5em;margin-right:0.5em;width:2.3em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + buss2[i] + '</p>' + '<p style="display:inline-block;width:7em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + destination2[i] + '</p>' + '<p style="display:inline-block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + slice2[i] + '</p></div>');
+            }
+            ////////////////HSL STOP 2/////////////////////
+
+        });
+}
 
 /*
 function HSL_Otakallio_haku() {

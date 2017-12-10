@@ -4,59 +4,63 @@ function liikennointi() {
     var d = new Date();
     var time = d.toLocaleTimeString();
     var kieli = "fi";
-    if(aikaam <= time && time <= aikapm){
+    if (aikaam <= time && time <= aikapm) {
         $.ajax({
             url: '../../../../data/mainConfig.json',
             header: ('Content-Type: application/json; charset=utf-8'),
             method: 'GET'
         }).then(function(data) {
             //console.log(data)
-            linebreak= document.createElement("AikaTaulu");
-            setInterval(function () {
+            linebreak = document.createElement("AikaTaulu");
+            setInterval(function() {
 
-                if(kieli=="fi"){
+                if (kieli == "fi") {
                     muutakulku(data.message4);
-                    kieli="sv";
-                }else if(kieli =="sv"){
+                    kieli = "sv";
+                } else if (kieli == "sv") {
                     muutakulku(data.message5);
-                    kieli="gb";
-                }else{
+                    kieli = "gb";
+                } else {
                     muutakulku(data.message6);
-                    kieli="fi";
+                    kieli = "fi";
                 }
-            },6000);
+            }, 6000);
         });
-        document.getElementById("AikaTaulu").innerHTML ="<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        document.getElementById("AikaTaulu").innerHTML = "<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        //document.getElementById("AikaTaulu").innerHTML ="<img width='100' src='../../../../img/buslogo.png'>";
         document.getElementById("AikaTaulu").setAttribute("style", 'background-color:#4806B1');
-    }else{
+    } else {
         $.ajax({
             url: '../../../../data/mainConfig.json',
             header: ('Content-Type: application/json; charset=utf-8'),
             method: 'GET'
         }).then(function(data) {
             //console.log(data)
-            linebreak= document.createElement("AikaTaulu");
-            setInterval(function () {
+            linebreak = document.createElement("AikaTaulu");
+            setInterval(function() {
 
-                if(kieli=="fi"){
+                if (kieli == "fi") {
                     muutakulku(data.message7);
-                    kieli="sv";
-                }else if(kieli =="sv"){
+                    kieli = "sv";
+                } else if (kieli == "sv") {
                     muutakulku(data.message8);
-                    kieli="gb";
-                }else{
+                    kieli = "gb";
+                } else {
                     muutakulku(data.message9);
-                    kieli="fi";
+                    kieli = "fi";
                 }
-            },6000);
+            }, 6000);
 
             muutakulku(data.message7);
         });
-        document.getElementById("AikaTaulu").innerHTML ="<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        document.getElementById("AikaTaulu").innerHTML = "<i class=\'fa fa-bus\' aria-hidden=\'true\'></i>"
+        //document.getElementById("AikaTaulu").innerHTML ="<img width='100' src='../../../../img/buslogo.png'>";
         document.getElementById("AikaTaulu").setAttribute("style", 'background-color:#4806B1');
     }
 
 }
+
 function muutakulku(viesti) {
-    $("#kulku").empty().append(viesti);	
+    $("#kulku").empty().append(viesti);
+	$("#kulku").attr("style", 'margin:1em;');
 }

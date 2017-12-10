@@ -1,0 +1,14 @@
+{
+	"_comment": "Bus stop configuration",
+	"stopName": "Koskelo 2",
+	"stop_coordinates": {"lat": "60.262909", "lng": "24.722947"},
+	"HSLStop1": "HSL:2712219",
+	"HSLStop1Name": "Koskelonkuja",
+	"HSLStop1Coord": {"lat": "60.263648", "lng": "24.723872"},
+	"HSLStop2": "HSL:2712220",
+	"HSLStop2Name": "Koskelonkuja",
+	"HSLStop2Coord": {"lat": "60.263192", "lng": "24.723054"},
+	"_comment": "Neutraalit tiedotteet merkitään sinisellä sävyllä (level 1), Ruuhkatiedotteet keltaisella (level 2), vaara- ja hätäteidotteet punaisella pohjalla ja valkoisella fontilla. (level 3)",
+	"level": 1,
+	"alert": "Koskelontie 21 - Koskelonkuja, Koskelo, Espoo"
+}
