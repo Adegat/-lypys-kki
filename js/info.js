@@ -13,5 +13,8 @@ $.ajax({
 	$("#info_fi").empty().append(data.message1);
 	$("#info_se").empty().append(data.message2);
 	$("#info_gb").empty().append(data.message3);
+	$("#info_fi").attr("style", 'font-size:1.6rem;');
+	$("#info_se").attr("style", 'font-size:1.6rem;');
+	$("#info_gb").attr("style", 'font-size:1.6rem;');
 });
 });

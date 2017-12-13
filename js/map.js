@@ -4,6 +4,20 @@ Luo google maps elementin ja hakee kartan keskityksen config tietojen perusteell
 //console.log("map.js");
 //GPS tracking server ip example: 'http://11.111.111.111:8082/api';
 function initMap(pressed) {
+	function sleep(milliseconds) {
+	if (pressed != 1){
+	var start = new Date().getTime();
+	for (var i = 0; i < 1e7; i++) {
+		if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+	}
+	}
+	}
+	
+	sleep(1000);
+	
+	
     var imageBus = {
         url: '../../../../img/bussi.png',
         scaledSize: new google.maps.Size(50, 50), // scaled size
@@ -20,7 +34,7 @@ function initMap(pressed) {
 	var centeredOn = {lat:Number(mapCentered.lat),lng: Number(mapCentered.lng)};
 
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
+        zoom: 17,
         center: centeredOn,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: false,
@@ -83,13 +97,17 @@ function initMap(pressed) {
 
 
     var root = server;
+	var markerBus;
     //console.log(root);
     ////////////////////Bus GPS tracking/////////////////////////
     function markerLoop() {
         var busPos;
         var busLocMarkers = [];
-        marker.setMap(null)
-        marker = null;
+		
+        if (markerBus){
+			markerBus.setMap(null)
+			markerBus = null;
+		};
         $.ajax({
             url: root + '/positions',
             method: 'GET',
@@ -112,7 +130,7 @@ function initMap(pressed) {
             busLocMarkers.push(busPos);
 
             function createLocMarker(map) {
-                marker = new google.maps.Marker({
+                markerBus = new google.maps.Marker({
                     position: busLocMarkers[0],
                     map: map,
                     title: 'Smart Bus',
@@ -188,7 +206,7 @@ function initMap(pressed) {
         preserveViewport: true,
         polylineOptions: {
             strokeColor: "#4806B1",
-			strokeOpacity: 0.3
+			strokeOpacity: 0.7
         }
     });
     directionsDisplay.setMap(map);

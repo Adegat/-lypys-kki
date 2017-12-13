@@ -42,7 +42,7 @@ function hsl_haku() {
             $('#hsl_bussit').empty();
             $('#HSLStopname1').append(name);
             for (i = 0; i < buss.length; i++) {
-                $('#hsl_bussit').append('<div><p style="display:inline-block;margin-left:0.5em;margin-right:0.5em;width:2.3em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + buss[i] + '</p>' + '<p style="display:inline-block;width:7em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + destination[i] + '</p>' + '<p style="display:inline-block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + slice[i] + '</p></div>');
+                $('#hsl_bussit').append('<div><p style="display:inline-block;margin-left:0.5em;margin-right:0.5em;width:2.4em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + buss[i] + '</p>' + '<p style="display:inline-block;width:7em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + destination[i] + '</p>' + '<p style="display:inline-block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + slice[i] + '</p></div>');
             }
             ////////////////HSL STOP 1/////////////////////
 
@@ -64,7 +64,7 @@ function hsl_haku() {
             $('#hsl_bussit2').empty();
             $('#HSLStopname2').append(name2);
             for (i = 0; i < buss2.length; i++) {
-                $('#hsl_bussit2').append('<div style=""><p style="display:inline-block;margin-left:0.5em;margin-right:0.5em;width:2.3em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + buss2[i] + '</p>' + '<p style="display:inline-block;width:7em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + destination2[i] + '</p>' + '<p style="display:inline-block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + slice2[i] + '</p></div>');
+                $('#hsl_bussit2').append('<div style=""><p style="display:inline-block;margin-left:0.5em;margin-right:0.5em;width:2.4em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + buss2[i] + '</p>' + '<p style="display:inline-block;width:7em;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + destination2[i] + '</p>' + '<p style="display:inline-block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + slice2[i] + '</p></div>');
             }
             ////////////////HSL STOP 2/////////////////////
 
