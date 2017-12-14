@@ -17,18 +17,22 @@ $.ajax({
 		hslStopName1 = data.HSLStop1Name;
 		hslStopName2 = data.HSLStop2Name;
 		stopName = data.stopName;
+		var dateTime = new Date();
+		var day = dateTime.getDate().toString();
+		var month = dateTime.getMonth()+1;
+		var year = dateTime.getFullYear().toString();
 		
 		if (data.level == 1){
 			//console.log("neutral");
 			$(".notices").attr("style", "background-color:#5530E0;");
-			$("#incl").append(data.alert);
+			$("#incl").append(day + "." + month + "." + year + " " + data.alert);
 		} else if (data.level == 2) {
 			//console.log("traffic");
 			$(".notices").attr("style", 'background-color:yellow;color:black;');
-			$("#incl").append(data.alert);
+			$("#incl").append(day + "." + month + "." + year + " " + data.alert);
 		} else {
 			//console.log("danger");
 			$(".notices").attr("style", 'background-color:red;color:white;');
-			$("#incl").append(data.alert);
+			$("#incl").append(day + "." + month + "." + year + " " + data.alert);
 		}
 }});
